@@ -6,9 +6,9 @@ import type { RegionListResponse } from '../models/RegionListResponse';
 import type { RegionRequest } from '../models/RegionRequest';
 import type { RegionResponse } from '../models/RegionResponse';
 import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class RegionService {
+    constructor(public readonly httpRequest: BaseHttpRequest) {}
     /**
      * @param sort Sort by attributes ascending (asc) or descending (desc)
      * @param paginationWithCount Return page/pageSize (default: true)
@@ -23,7 +23,7 @@ export class RegionService {
      * @returns RegionListResponse OK
      * @throws ApiError
      */
-    public static getRegions(
+    public getRegions(
         sort?: string,
         paginationWithCount?: boolean,
         paginationPage?: number,
@@ -35,7 +35,7 @@ export class RegionService {
         filters?: Record<string, any>,
         locale?: string,
     ): CancelablePromise<RegionListResponse> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/regions',
             query: {
@@ -64,10 +64,10 @@ export class RegionService {
      * @returns RegionResponse OK
      * @throws ApiError
      */
-    public static postRegions(
+    public postRegions(
         requestBody: RegionRequest,
     ): CancelablePromise<RegionResponse> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/regions',
             body: requestBody,
@@ -86,10 +86,10 @@ export class RegionService {
      * @returns RegionResponse OK
      * @throws ApiError
      */
-    public static getRegionsId(
+    public getRegionsId(
         id: number,
     ): CancelablePromise<RegionResponse> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/regions/{id}',
             path: {
@@ -110,11 +110,11 @@ export class RegionService {
      * @returns RegionResponse OK
      * @throws ApiError
      */
-    public static putRegionsId(
+    public putRegionsId(
         id: number,
         requestBody: RegionRequest,
     ): CancelablePromise<RegionResponse> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'PUT',
             url: '/regions/{id}',
             path: {
@@ -136,10 +136,10 @@ export class RegionService {
      * @returns number OK
      * @throws ApiError
      */
-    public static deleteRegionsId(
+    public deleteRegionsId(
         id: number,
     ): CancelablePromise<number> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'DELETE',
             url: '/regions/{id}',
             path: {

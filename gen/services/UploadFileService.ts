@@ -4,16 +4,16 @@
 /* eslint-disable */
 import type { UploadFile } from '../models/UploadFile';
 import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class UploadFileService {
+    constructor(public readonly httpRequest: BaseHttpRequest) {}
     /**
      * Upload files
      * @param formData Upload files
      * @returns UploadFile response
      * @throws ApiError
      */
-    public static postUpload(
+    public postUpload(
         formData: {
             /**
              * The folder where the file(s) will be uploaded to (only supported on strapi-provider-upload-aws-s3).
@@ -34,7 +34,7 @@ export class UploadFileService {
             files: Array<Blob>;
         },
     ): CancelablePromise<Array<UploadFile>> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/upload',
             formData: formData,
@@ -48,7 +48,7 @@ export class UploadFileService {
      * @returns UploadFile response
      * @throws ApiError
      */
-    public static postUpload?id=(
+    public postUpload?id=(
         id: string,
         formData: {
             fileInfo?: {
@@ -59,7 +59,7 @@ export class UploadFileService {
             files?: Blob;
         },
     ): CancelablePromise<Array<UploadFile>> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/upload?id={id}',
             query: {
@@ -73,8 +73,8 @@ export class UploadFileService {
      * @returns UploadFile Get a list of files
      * @throws ApiError
      */
-    public static getUploadFiles(): CancelablePromise<Array<UploadFile>> {
-        return __request(OpenAPI, {
+    public getUploadFiles(): CancelablePromise<Array<UploadFile>> {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/upload/files',
         });
@@ -84,10 +84,10 @@ export class UploadFileService {
      * @returns UploadFile Get a specific file
      * @throws ApiError
      */
-    public static getUploadFiles1(
+    public getUploadFiles1(
         id: string,
     ): CancelablePromise<UploadFile> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/upload/files/{id}',
             path: {
@@ -100,10 +100,10 @@ export class UploadFileService {
      * @returns UploadFile Delete a file
      * @throws ApiError
      */
-    public static deleteUploadFiles(
+    public deleteUploadFiles(
         id: string,
     ): CancelablePromise<UploadFile> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'DELETE',
             url: '/upload/files/{id}',
             path: {

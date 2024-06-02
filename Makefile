@@ -4,6 +4,6 @@ download_schema:
 	@curl https://$(TOKEN)@raw.githubusercontent.com/aigiza-diploma/strapi/master/src/extensions/documentation/documentation/1.0.0/full_documentation.json -o schema.json
 
 generate:
-	yarn openapi -i schema.json -o gen/
+	yarn openapi -i schema.json -o gen/ --name DcClient
 
 all: download_schema generate

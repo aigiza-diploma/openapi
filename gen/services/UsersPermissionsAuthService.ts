@@ -5,9 +5,9 @@
 import type { Error } from '../models/Error';
 import type { Users_Permissions_UserRegistration } from '../models/Users_Permissions_UserRegistration';
 import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class UsersPermissionsAuthService {
+    constructor(public readonly httpRequest: BaseHttpRequest) {}
     /**
      * Login with a provider
      * Redirects to provider login before being redirect to /auth/{provider}/callback
@@ -15,10 +15,10 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getConnect(
+    public getConnect(
         provider: string,
     ): CancelablePromise<Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/connect/{provider}',
             path: {
@@ -37,13 +37,13 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static postAuthLocal(
+    public postAuthLocal(
         requestBody: {
             identifier?: string;
             password?: string;
         },
     ): CancelablePromise<Users_Permissions_UserRegistration | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/auth/local',
             body: requestBody,
@@ -58,14 +58,14 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static postAuthLocalRegister(
+    public postAuthLocalRegister(
         requestBody: {
             username?: string;
             email?: string;
             password?: string;
         },
     ): CancelablePromise<Users_Permissions_UserRegistration | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/auth/local/register',
             body: requestBody,
@@ -79,10 +79,10 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getAuthCallback(
+    public getAuthCallback(
         provider: string,
     ): CancelablePromise<Users_Permissions_UserRegistration | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/auth/{provider}/callback',
             path: {
@@ -97,14 +97,14 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static postAuthForgotPassword(
+    public postAuthForgotPassword(
         requestBody: {
             email?: string;
         },
     ): CancelablePromise<{
         ok?: string;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/auth/forgot-password',
             body: requestBody,
@@ -118,14 +118,14 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static postAuthResetPassword(
+    public postAuthResetPassword(
         requestBody: {
             password?: string;
             passwordConfirmation?: string;
             code?: string;
         },
     ): CancelablePromise<Users_Permissions_UserRegistration | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/auth/reset-password',
             body: requestBody,
@@ -139,14 +139,14 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static postAuthChangePassword(
+    public postAuthChangePassword(
         requestBody: {
             password: string;
             currentPassword: string;
             passwordConfirmation: string;
         },
     ): CancelablePromise<Users_Permissions_UserRegistration | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/auth/change-password',
             body: requestBody,
@@ -159,10 +159,10 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getAuthEmailConfirmation(
+    public getAuthEmailConfirmation(
         confirmation?: string,
     ): CancelablePromise<Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/auth/email-confirmation',
             query: {
@@ -180,7 +180,7 @@ export class UsersPermissionsAuthService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static postAuthSendEmailConfirmation(
+    public postAuthSendEmailConfirmation(
         requestBody: {
             email?: string;
         },
@@ -188,7 +188,7 @@ export class UsersPermissionsAuthService {
         email?: string;
         sent?: string;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/auth/send-email-confirmation',
             body: requestBody,

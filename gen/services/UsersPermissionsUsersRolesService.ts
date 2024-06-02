@@ -7,19 +7,19 @@ import type { Users_Permissions_PermissionsTree } from '../models/Users_Permissi
 import type { Users_Permissions_Role } from '../models/Users_Permissions_Role';
 import type { Users_Permissions_User } from '../models/Users_Permissions_User';
 import type { CancelablePromise } from '../core/CancelablePromise';
-import { OpenAPI } from '../core/OpenAPI';
-import { request as __request } from '../core/request';
+import type { BaseHttpRequest } from '../core/BaseHttpRequest';
 export class UsersPermissionsUsersRolesService {
+    constructor(public readonly httpRequest: BaseHttpRequest) {}
     /**
      * Get default generated permissions
      * @returns any Returns the permissions tree
      * @returns Error Error
      * @throws ApiError
      */
-    public static getUsersPermissionsPermissions(): CancelablePromise<{
+    public getUsersPermissionsPermissions(): CancelablePromise<{
         permissions?: Users_Permissions_PermissionsTree;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/users-permissions/permissions',
         });
@@ -30,12 +30,12 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getUsersPermissionsRoles(): CancelablePromise<{
+    public getUsersPermissionsRoles(): CancelablePromise<{
         roles?: Array<(Users_Permissions_Role & {
             nb_users?: number;
         })>;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/users-permissions/roles',
         });
@@ -47,7 +47,7 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static postUsersPermissionsRoles(
+    public postUsersPermissionsRoles(
         requestBody: {
             name?: string;
             description?: string;
@@ -57,7 +57,7 @@ export class UsersPermissionsUsersRolesService {
     ): CancelablePromise<{
         ok?: string;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/users-permissions/roles',
             body: requestBody,
@@ -71,12 +71,12 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getUsersPermissionsRoles1(
+    public getUsersPermissionsRoles1(
         id: string,
     ): CancelablePromise<{
         role?: Users_Permissions_Role;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/users-permissions/roles/{id}',
             path: {
@@ -92,7 +92,7 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static putUsersPermissionsRoles(
+    public putUsersPermissionsRoles(
         role: string,
         requestBody: {
             name?: string;
@@ -103,7 +103,7 @@ export class UsersPermissionsUsersRolesService {
     ): CancelablePromise<{
         ok?: string;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'PUT',
             url: '/users-permissions/roles/{role}',
             path: {
@@ -120,12 +120,12 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static deleteUsersPermissionsRoles(
+    public deleteUsersPermissionsRoles(
         role: string,
     ): CancelablePromise<{
         ok?: string;
     } | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'DELETE',
             url: '/users-permissions/roles/{role}',
             path: {
@@ -139,8 +139,8 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getUsers(): CancelablePromise<Array<Users_Permissions_User> | Error> {
-        return __request(OpenAPI, {
+    public getUsers(): CancelablePromise<Array<Users_Permissions_User> | Error> {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/users',
         });
@@ -152,7 +152,7 @@ export class UsersPermissionsUsersRolesService {
      * @returns any Returns created user info
      * @throws ApiError
      */
-    public static postUsers(
+    public postUsers(
         requestBody: {
             email: string;
             username: string;
@@ -161,7 +161,7 @@ export class UsersPermissionsUsersRolesService {
     ): CancelablePromise<Error | (Users_Permissions_User & {
         role?: Users_Permissions_Role;
     })> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'POST',
             url: '/users',
             body: requestBody,
@@ -175,10 +175,10 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getUsers1(
+    public getUsers1(
         id: string,
     ): CancelablePromise<Users_Permissions_User | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/users/{id}',
             path: {
@@ -194,7 +194,7 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static putUsers(
+    public putUsers(
         id: string,
         requestBody: {
             email: string;
@@ -204,7 +204,7 @@ export class UsersPermissionsUsersRolesService {
     ): CancelablePromise<(Users_Permissions_User & {
         role?: Users_Permissions_Role;
     }) | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'PUT',
             url: '/users/{id}',
             path: {
@@ -221,10 +221,10 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static deleteUsers(
+    public deleteUsers(
         id: string,
     ): CancelablePromise<Users_Permissions_User | Error> {
-        return __request(OpenAPI, {
+        return this.httpRequest.request({
             method: 'DELETE',
             url: '/users/{id}',
             path: {
@@ -238,8 +238,8 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getUsersMe(): CancelablePromise<Users_Permissions_User | Error> {
-        return __request(OpenAPI, {
+    public getUsersMe(): CancelablePromise<Users_Permissions_User | Error> {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/users/me',
         });
@@ -250,8 +250,8 @@ export class UsersPermissionsUsersRolesService {
      * @returns Error Error
      * @throws ApiError
      */
-    public static getUsersCount(): CancelablePromise<number | Error> {
-        return __request(OpenAPI, {
+    public getUsersCount(): CancelablePromise<number | Error> {
+        return this.httpRequest.request({
             method: 'GET',
             url: '/users/count',
         });

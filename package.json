@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "openapi-typescript-codegen": "^0.29.0"
+  },
+  "name": "openapi",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "private": true
+}

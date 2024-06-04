@@ -1,3 +1,1 @@
-
-
-export * from "./gen/index";
+export * from "./src/client";

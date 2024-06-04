@@ -1147,6 +1147,7 @@ export type Service = {
             id?: number;
             attributes?: {
                 title?: string;
+                mdiStyle?: string;
                 createdAt?: string;
                 updatedAt?: string;
                 createdBy?: {
@@ -1195,6 +1196,7 @@ export type ServiceResponse = {
 export type ServiceTypeRequest = {
     data: {
         title?: string;
+        mdiStyle?: string;
     };
 };
 
@@ -1217,6 +1219,7 @@ export type ServiceTypeListResponse = {
 
 export type ServiceType = {
     title?: string;
+    mdiStyle?: string;
     createdAt?: string;
     updatedAt?: string;
     createdBy?: {

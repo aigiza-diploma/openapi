@@ -3340,6 +3340,9 @@ export const $Service = {
                                 title: {
                                     type: 'string'
                                 },
+                                mdiStyle: {
+                                    type: 'string'
+                                },
                                 createdAt: {
                                     type: 'string',
                                     format: 'date-time'
@@ -3466,6 +3469,9 @@ export const $ServiceTypeRequest = {
             properties: {
                 title: {
                     type: 'string'
+                },
+                mdiStyle: {
+                    type: 'string'
                 }
             }
         }
@@ -3524,6 +3530,9 @@ export const $ServiceType = {
     type: 'object',
     properties: {
         title: {
+            type: 'string'
+        },
+        mdiStyle: {
             type: 'string'
         },
         createdAt: {

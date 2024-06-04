@@ -3,7 +3,16 @@ TOKEN:=github_pat_11AKW6MZA0vIytB0ykzpAW_FIWXa22Bz3stdybBhZ083naiYmxohZu64IHW1ZB
 download_schema:
 	@curl https://$(TOKEN)@raw.githubusercontent.com/aigiza-diploma/strapi/master/src/extensions/documentation/documentation/1.0.0/full_documentation.json -o schema.json
 
-generate:
-	yarn openapi -i schema.json -o gen/ --name DcClient
+clean_dst:
+	rm -rf src/*
 
-all: download_schema generate
+generate:
+	yarn openapi-ts
+
+publish:
+	yarn version --patch
+	git add .
+	git commit -m "dev"
+	git push origin master
+
+all: clean_dst download_schema generate publish

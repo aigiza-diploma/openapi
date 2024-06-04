@@ -159,6 +159,7 @@ export type DirectionRequest = {
     data: {
         title?: string;
         region?: number | string;
+        mainImage?: number | string;
     };
 };
 
@@ -398,6 +399,54 @@ export type Direction = {
                         };
                     };
                 };
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        };
+    };
+    mainImage?: {
+        data?: {
+            id?: number;
+            attributes?: {
+                name?: string;
+                alternativeText?: string;
+                caption?: string;
+                width?: number;
+                height?: number;
+                formats?: unknown;
+                hash?: string;
+                ext?: string;
+                mime?: string;
+                size?: number;
+                url?: string;
+                previewUrl?: string;
+                provider?: string;
+                provider_metadata?: unknown;
+                related?: {
+                    data?: Array<{
+                        id?: number;
+                        attributes?: unknown;
+                    }>;
+                };
+                folder?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                folderPath?: string;
                 createdAt?: string;
                 updatedAt?: string;
                 createdBy?: {
@@ -1011,6 +1060,54 @@ export type Service = {
                                     };
                                 };
                             };
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    };
+                };
+                mainImage?: {
+                    data?: {
+                        id?: number;
+                        attributes?: {
+                            name?: string;
+                            alternativeText?: string;
+                            caption?: string;
+                            width?: number;
+                            height?: number;
+                            formats?: unknown;
+                            hash?: string;
+                            ext?: string;
+                            mime?: string;
+                            size?: number;
+                            url?: string;
+                            previewUrl?: string;
+                            provider?: string;
+                            provider_metadata?: unknown;
+                            related?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: unknown;
+                                }>;
+                            };
+                            folder?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            folderPath?: string;
                             createdAt?: string;
                             updatedAt?: string;
                             createdBy?: {

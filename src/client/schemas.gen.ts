@@ -448,6 +448,17 @@ export const $DirectionRequest = {
                         }
                     ],
                     example: 'string or id'
+                },
+                mainImage: {
+                    oneOf: [
+                        {
+                            type: 'integer'
+                        },
+                        {
+                            type: 'string'
+                        }
+                    ],
+                    example: 'string or id'
                 }
             }
         }
@@ -1144,6 +1155,145 @@ export const $Direction = {
                                             }
                                         }
                                     }
+                                },
+                                createdAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                updatedAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                createdBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                updatedBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        mainImage: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {
+                                name: {
+                                    type: 'string'
+                                },
+                                alternativeText: {
+                                    type: 'string'
+                                },
+                                caption: {
+                                    type: 'string'
+                                },
+                                width: {
+                                    type: 'integer'
+                                },
+                                height: {
+                                    type: 'integer'
+                                },
+                                formats: {},
+                                hash: {
+                                    type: 'string'
+                                },
+                                ext: {
+                                    type: 'string'
+                                },
+                                mime: {
+                                    type: 'string'
+                                },
+                                size: {
+                                    type: 'number',
+                                    format: 'float'
+                                },
+                                url: {
+                                    type: 'string'
+                                },
+                                previewUrl: {
+                                    type: 'string'
+                                },
+                                provider: {
+                                    type: 'string'
+                                },
+                                provider_metadata: {},
+                                related: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'array',
+                                            items: {
+                                                type: 'object',
+                                                properties: {
+                                                    id: {
+                                                        type: 'number'
+                                                    },
+                                                    attributes: {
+                                                        type: 'object',
+                                                        properties: {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                folder: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                folderPath: {
+                                    type: 'string'
                                 },
                                 createdAt: {
                                     type: 'string',
@@ -2939,6 +3089,145 @@ export const $Service = {
                                                                     }
                                                                 }
                                                             }
+                                                        },
+                                                        createdAt: {
+                                                            type: 'string',
+                                                            format: 'date-time'
+                                                        },
+                                                        updatedAt: {
+                                                            type: 'string',
+                                                            format: 'date-time'
+                                                        },
+                                                        createdBy: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        updatedBy: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                mainImage: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {
+                                                        name: {
+                                                            type: 'string'
+                                                        },
+                                                        alternativeText: {
+                                                            type: 'string'
+                                                        },
+                                                        caption: {
+                                                            type: 'string'
+                                                        },
+                                                        width: {
+                                                            type: 'integer'
+                                                        },
+                                                        height: {
+                                                            type: 'integer'
+                                                        },
+                                                        formats: {},
+                                                        hash: {
+                                                            type: 'string'
+                                                        },
+                                                        ext: {
+                                                            type: 'string'
+                                                        },
+                                                        mime: {
+                                                            type: 'string'
+                                                        },
+                                                        size: {
+                                                            type: 'number',
+                                                            format: 'float'
+                                                        },
+                                                        url: {
+                                                            type: 'string'
+                                                        },
+                                                        previewUrl: {
+                                                            type: 'string'
+                                                        },
+                                                        provider: {
+                                                            type: 'string'
+                                                        },
+                                                        provider_metadata: {},
+                                                        related: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'array',
+                                                                    items: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        folder: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        folderPath: {
+                                                            type: 'string'
                                                         },
                                                         createdAt: {
                                                             type: 'string',

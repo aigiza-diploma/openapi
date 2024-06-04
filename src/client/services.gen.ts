@@ -2,7 +2,7 @@
 
 import type { CancelablePromise } from './core/CancelablePromise';
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
-import type { GetRegionsData, GetRegionsResponse, PostRegionsData, PostRegionsResponse, GetRegionsIdData, GetRegionsIdResponse, PutRegionsIdData, PutRegionsIdResponse, DeleteRegionsIdData, DeleteRegionsIdResponse, PostUploadData, PostUploadResponse, PostUpload?id=byIdData, PostUpload?id=byIdResponse, GetUploadFilesResponse, GetUploadFilesByIdData, GetUploadFilesByIdResponse, DeleteUploadFilesByIdData, DeleteUploadFilesByIdResponse, GetConnectByProviderData, GetConnectByProviderResponse, PostAuthLocalData, PostAuthLocalResponse, PostAuthLocalRegisterData, PostAuthLocalRegisterResponse, GetAuthByProviderCallbackData, GetAuthByProviderCallbackResponse, PostAuthForgotPasswordData, PostAuthForgotPasswordResponse, PostAuthResetPasswordData, PostAuthResetPasswordResponse, PostAuthChangePasswordData, PostAuthChangePasswordResponse, GetAuthEmailConfirmationData, GetAuthEmailConfirmationResponse, PostAuthSendEmailConfirmationData, PostAuthSendEmailConfirmationResponse, GetUsersPermissionsPermissionsResponse, GetUsersPermissionsRolesResponse, PostUsersPermissionsRolesData, PostUsersPermissionsRolesResponse, GetUsersPermissionsRolesByIdData, GetUsersPermissionsRolesByIdResponse, PutUsersPermissionsRolesByRoleData, PutUsersPermissionsRolesByRoleResponse, DeleteUsersPermissionsRolesByRoleData, DeleteUsersPermissionsRolesByRoleResponse, GetUsersResponse, PostUsersData, PostUsersResponse, GetUsersByIdData, GetUsersByIdResponse, PutUsersByIdData, PutUsersByIdResponse, DeleteUsersByIdData, DeleteUsersByIdResponse, GetUsersMeResponse, GetUsersCountResponse } from './types.gen';
+import type { GetRegionsData, GetRegionsResponse, PostRegionsData, PostRegionsResponse, GetRegionsIdData, GetRegionsIdResponse, PutRegionsIdData, PutRegionsIdResponse, DeleteRegionsIdData, DeleteRegionsIdResponse, GetConnectByProviderData, GetConnectByProviderResponse, PostAuthLocalData, PostAuthLocalResponse, PostAuthLocalRegisterData, PostAuthLocalRegisterResponse, GetAuthByProviderCallbackData, GetAuthByProviderCallbackResponse, PostAuthForgotPasswordData, PostAuthForgotPasswordResponse, PostAuthResetPasswordData, PostAuthResetPasswordResponse, PostAuthChangePasswordData, PostAuthChangePasswordResponse, GetAuthEmailConfirmationData, GetAuthEmailConfirmationResponse, PostAuthSendEmailConfirmationData, PostAuthSendEmailConfirmationResponse, GetUsersPermissionsPermissionsResponse, GetUsersPermissionsRolesResponse, PostUsersPermissionsRolesData, PostUsersPermissionsRolesResponse, GetUsersPermissionsRolesByIdData, GetUsersPermissionsRolesByIdResponse, PutUsersPermissionsRolesByRoleData, PutUsersPermissionsRolesByRoleResponse, DeleteUsersPermissionsRolesByRoleData, DeleteUsersPermissionsRolesByRoleResponse, GetUsersResponse, PostUsersData, PostUsersResponse, GetUsersByIdData, GetUsersByIdResponse, PutUsersByIdData, PutUsersByIdResponse, DeleteUsersByIdData, DeleteUsersByIdResponse, GetUsersMeResponse, GetUsersCountResponse } from './types.gen';
 
 export class RegionService {
     constructor(public readonly httpRequest: BaseHttpRequest) { }
@@ -138,90 +138,6 @@ export class RegionService {
                 403: 'Forbidden',
                 404: 'Not Found',
                 500: 'Internal Server Error'
-            }
-        });
-    }
-    
-}
-
-export class UploadFileService {
-    constructor(public readonly httpRequest: BaseHttpRequest) { }
-    
-    /**
-     * Upload files
-     * @param data The data for the request.
-     * @param data.formData Upload files
-     * @returns UploadFile response
-     * @throws ApiError
-     */
-    public postUpload(data: PostUploadData): CancelablePromise<PostUploadResponse> {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/upload',
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * Upload file information
-     * @param data The data for the request.
-     * @param data.id File id
-     * @param data.formData Upload files
-     * @returns UploadFile response
-     * @throws ApiError
-     */
-    public postUpload?id=byId(data: PostUpload?id=byIdData): CancelablePromise<PostUpload?id=byIdResponse> {
-        return this.httpRequest.request({
-            method: 'POST',
-            url: '/upload?id={id}',
-            query: {
-                id: data.id
-            },
-            formData: data.formData,
-            mediaType: 'multipart/form-data'
-        });
-    }
-    
-    /**
-     * @returns UploadFile Get a list of files
-     * @throws ApiError
-     */
-    public getUploadFiles(): CancelablePromise<GetUploadFilesResponse> {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/upload/files'
-        });
-    }
-    
-    /**
-     * @param data The data for the request.
-     * @param data.id
-     * @returns UploadFile Get a specific file
-     * @throws ApiError
-     */
-    public getUploadFilesById(data: GetUploadFilesByIdData): CancelablePromise<GetUploadFilesByIdResponse> {
-        return this.httpRequest.request({
-            method: 'GET',
-            url: '/upload/files/{id}',
-            path: {
-                id: data.id
-            }
-        });
-    }
-    
-    /**
-     * @param data The data for the request.
-     * @param data.id
-     * @returns UploadFile Delete a file
-     * @throws ApiError
-     */
-    public deleteUploadFilesById(data: DeleteUploadFilesByIdData): CancelablePromise<DeleteUploadFilesByIdResponse> {
-        return this.httpRequest.request({
-            method: 'DELETE',
-            url: '/upload/files/{id}',
-            path: {
-                id: data.id
             }
         });
     }

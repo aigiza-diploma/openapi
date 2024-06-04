@@ -283,28 +283,6 @@ export type RegionResponse = {
     };
 };
 
-export type UploadFile = {
-    id?: number;
-    name?: string;
-    alternativeText?: string;
-    caption?: string;
-    width?: number;
-    height?: number;
-    formats?: number;
-    hash?: string;
-    ext?: string;
-    mime?: string;
-    size?: number;
-    url?: string;
-    previewUrl?: string;
-    provider?: string;
-    provider_metadata?: {
-        [key: string]: unknown;
-    };
-    createdAt?: string;
-    updatedAt?: string;
-};
-
 export type Users_Permissions_Role = {
     id?: number;
     name?: string;
@@ -417,67 +395,6 @@ export type DeleteRegionsIdData = {
 };
 
 export type DeleteRegionsIdResponse = number;
-
-export type PostUploadData = {
-    /**
-     * Upload files
-     */
-    formData: {
-        /**
-         * The folder where the file(s) will be uploaded to (only supported on strapi-provider-upload-aws-s3).
-         */
-        path?: string;
-        /**
-         * The ID of the entry which the file(s) will be linked to
-         */
-        refId?: string;
-        /**
-         * The unique ID (uid) of the model which the file(s) will be linked to (api::restaurant.restaurant).
-         */
-        ref?: string;
-        /**
-         * The field of the entry which the file(s) will be precisely linked to.
-         */
-        field?: string;
-        files: Array<((Blob | File))>;
-    };
-};
-
-export type PostUploadResponse = Array<UploadFile>;
-
-export type PostUpload?id=byIdData = {
-    /**
-     * Upload files
-     */
-    formData: {
-        fileInfo?: {
-            name?: string;
-            alternativeText?: string;
-            caption?: string;
-        };
-        files?: (Blob | File);
-    };
-    /**
-     * File id
-     */
-    id: string;
-};
-
-export type PostUpload?id=byIdResponse = Array<UploadFile>;
-
-export type GetUploadFilesResponse = Array<UploadFile>;
-
-export type GetUploadFilesByIdData = {
-    id: string;
-};
-
-export type GetUploadFilesByIdResponse = UploadFile;
-
-export type DeleteUploadFilesByIdData = {
-    id: string;
-};
-
-export type DeleteUploadFilesByIdResponse = UploadFile;
 
 export type GetConnectByProviderData = {
     /**
@@ -827,58 +744,6 @@ export type $OpenApiTs = {
                  * Internal Server Error
                  */
                 500: Error;
-            };
-        };
-    };
-    '/upload': {
-        post: {
-            req: PostUploadData;
-            res: {
-                /**
-                 * response
-                 */
-                200: Array<UploadFile>;
-            };
-        };
-    };
-    '/upload?id={id}': {
-        post: {
-            req: PostUpload?id=byIdData;
-            res: {
-                /**
-                 * response
-                 */
-                200: Array<UploadFile>;
-            };
-        };
-    };
-    '/upload/files': {
-        get: {
-            res: {
-                /**
-                 * Get a list of files
-                 */
-                200: Array<UploadFile>;
-            };
-        };
-    };
-    '/upload/files/{id}': {
-        get: {
-            req: GetUploadFilesByIdData;
-            res: {
-                /**
-                 * Get a specific file
-                 */
-                200: UploadFile;
-            };
-        };
-        delete: {
-            req: DeleteUploadFilesByIdData;
-            res: {
-                /**
-                 * Delete a file
-                 */
-                200: UploadFile;
             };
         };
     };

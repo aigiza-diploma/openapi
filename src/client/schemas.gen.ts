@@ -813,67 +813,6 @@ export const $RegionResponse = {
     }
 } as const;
 
-export const $UploadFile = {
-    properties: {
-        id: {
-            type: 'number'
-        },
-        name: {
-            type: 'string'
-        },
-        alternativeText: {
-            type: 'string'
-        },
-        caption: {
-            type: 'string'
-        },
-        width: {
-            type: 'number',
-            format: 'integer'
-        },
-        height: {
-            type: 'number',
-            format: 'integer'
-        },
-        formats: {
-            type: 'number'
-        },
-        hash: {
-            type: 'string'
-        },
-        ext: {
-            type: 'string'
-        },
-        mime: {
-            type: 'string'
-        },
-        size: {
-            type: 'number',
-            format: 'double'
-        },
-        url: {
-            type: 'string'
-        },
-        previewUrl: {
-            type: 'string'
-        },
-        provider: {
-            type: 'string'
-        },
-        provider_metadata: {
-            type: 'object'
-        },
-        createdAt: {
-            type: 'string',
-            format: 'date-time'
-        },
-        updatedAt: {
-            type: 'string',
-            format: 'date-time'
-        }
-    }
-} as const;
-
 export const $Users_Permissions_Role = {
     type: 'object',
     properties: {

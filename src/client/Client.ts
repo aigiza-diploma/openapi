@@ -4,7 +4,6 @@ import { Interceptors } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
 
 import { RegionService } from './services.gen';
-import { UploadFileService } from './services.gen';
 import { UsersPermissionsAuthService } from './services.gen';
 import { UsersPermissionsUsersRolesService } from './services.gen';
 
@@ -13,7 +12,6 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 export class Client {
 
 	public readonly region: RegionService;
-	public readonly uploadFile: UploadFileService;
 	public readonly usersPermissionsAuth: UsersPermissionsAuthService;
 	public readonly usersPermissionsUsersRoles: UsersPermissionsUsersRolesService;
 
@@ -37,7 +35,6 @@ export class Client {
 		});
 
 		this.region = new RegionService(this.request);
-		this.uploadFile = new UploadFileService(this.request);
 		this.usersPermissionsAuth = new UsersPermissionsAuthService(this.request);
 		this.usersPermissionsUsersRoles = new UsersPermissionsUsersRolesService(this.request);
 	}

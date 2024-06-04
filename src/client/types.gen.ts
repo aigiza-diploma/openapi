@@ -16,6 +16,433 @@ export type Error = {
     };
 };
 
+export type CallbackRequestRequest = {
+    data: {
+        email?: string;
+    };
+};
+
+export type CallbackRequestListResponseDataItem = {
+    id?: number;
+    attributes?: CallbackRequest;
+};
+
+export type CallbackRequestListResponse = {
+    data?: Array<CallbackRequestListResponseDataItem>;
+    meta?: {
+        pagination?: {
+            page?: number;
+            pageSize?: number;
+            pageCount?: number;
+            total?: number;
+        };
+    };
+};
+
+export type CallbackRequest = {
+    email?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    createdBy?: {
+        data?: {
+            id?: number;
+            attributes?: {
+                firstname?: string;
+                lastname?: string;
+                username?: string;
+                email?: string;
+                resetPasswordToken?: string;
+                registrationToken?: string;
+                isActive?: boolean;
+                roles?: {
+                    data?: Array<{
+                        id?: number;
+                        attributes?: {
+                            name?: string;
+                            code?: string;
+                            description?: string;
+                            users?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: unknown;
+                                }>;
+                            };
+                            permissions?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: {
+                                        action?: string;
+                                        actionParameters?: unknown;
+                                        subject?: string;
+                                        properties?: unknown;
+                                        conditions?: unknown;
+                                        role?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        createdBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        updatedBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                    };
+                                }>;
+                            };
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    }>;
+                };
+                blocked?: boolean;
+                preferedLanguage?: string;
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        };
+    };
+    updatedBy?: {
+        data?: {
+            id?: number;
+            attributes?: unknown;
+        };
+    };
+};
+
+export type CallbackRequestResponseDataObject = {
+    id?: number;
+    attributes?: CallbackRequest;
+};
+
+export type CallbackRequestResponse = {
+    data?: CallbackRequestResponseDataObject;
+    meta?: {
+        [key: string]: unknown;
+    };
+};
+
+export type DirectionRequest = {
+    data: {
+        title?: string;
+        region?: number | string;
+    };
+};
+
+export type DirectionListResponseDataItem = {
+    id?: number;
+    attributes?: Direction;
+};
+
+export type DirectionListResponse = {
+    data?: Array<DirectionListResponseDataItem>;
+    meta?: {
+        pagination?: {
+            page?: number;
+            pageSize?: number;
+            pageCount?: number;
+            total?: number;
+        };
+    };
+};
+
+export type Direction = {
+    title?: string;
+    region?: {
+        data?: {
+            id?: number;
+            attributes?: {
+                title?: string;
+                mainImage?: {
+                    data?: {
+                        id?: number;
+                        attributes?: {
+                            name?: string;
+                            alternativeText?: string;
+                            caption?: string;
+                            width?: number;
+                            height?: number;
+                            formats?: unknown;
+                            hash?: string;
+                            ext?: string;
+                            mime?: string;
+                            size?: number;
+                            url?: string;
+                            previewUrl?: string;
+                            provider?: string;
+                            provider_metadata?: unknown;
+                            related?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: unknown;
+                                }>;
+                            };
+                            folder?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: {
+                                        name?: string;
+                                        pathId?: number;
+                                        parent?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        children?: {
+                                            data?: Array<{
+                                                id?: number;
+                                                attributes?: unknown;
+                                            }>;
+                                        };
+                                        files?: {
+                                            data?: Array<{
+                                                id?: number;
+                                                attributes?: {
+                                                    name?: string;
+                                                    alternativeText?: string;
+                                                    caption?: string;
+                                                    width?: number;
+                                                    height?: number;
+                                                    formats?: unknown;
+                                                    hash?: string;
+                                                    ext?: string;
+                                                    mime?: string;
+                                                    size?: number;
+                                                    url?: string;
+                                                    previewUrl?: string;
+                                                    provider?: string;
+                                                    provider_metadata?: unknown;
+                                                    related?: {
+                                                        data?: Array<{
+                                                            id?: number;
+                                                            attributes?: unknown;
+                                                        }>;
+                                                    };
+                                                    folder?: {
+                                                        data?: {
+                                                            id?: number;
+                                                            attributes?: unknown;
+                                                        };
+                                                    };
+                                                    folderPath?: string;
+                                                    createdAt?: string;
+                                                    updatedAt?: string;
+                                                    createdBy?: {
+                                                        data?: {
+                                                            id?: number;
+                                                            attributes?: {
+                                                                firstname?: string;
+                                                                lastname?: string;
+                                                                username?: string;
+                                                                email?: string;
+                                                                resetPasswordToken?: string;
+                                                                registrationToken?: string;
+                                                                isActive?: boolean;
+                                                                roles?: {
+                                                                    data?: Array<{
+                                                                        id?: number;
+                                                                        attributes?: {
+                                                                            name?: string;
+                                                                            code?: string;
+                                                                            description?: string;
+                                                                            users?: {
+                                                                                data?: Array<{
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                }>;
+                                                                            };
+                                                                            permissions?: {
+                                                                                data?: Array<{
+                                                                                    id?: number;
+                                                                                    attributes?: {
+                                                                                        action?: string;
+                                                                                        actionParameters?: unknown;
+                                                                                        subject?: string;
+                                                                                        properties?: unknown;
+                                                                                        conditions?: unknown;
+                                                                                        role?: {
+                                                                                            data?: {
+                                                                                                id?: number;
+                                                                                                attributes?: unknown;
+                                                                                            };
+                                                                                        };
+                                                                                        createdAt?: string;
+                                                                                        updatedAt?: string;
+                                                                                        createdBy?: {
+                                                                                            data?: {
+                                                                                                id?: number;
+                                                                                                attributes?: unknown;
+                                                                                            };
+                                                                                        };
+                                                                                        updatedBy?: {
+                                                                                            data?: {
+                                                                                                id?: number;
+                                                                                                attributes?: unknown;
+                                                                                            };
+                                                                                        };
+                                                                                    };
+                                                                                }>;
+                                                                            };
+                                                                            createdAt?: string;
+                                                                            updatedAt?: string;
+                                                                            createdBy?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                            updatedBy?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                        };
+                                                                    }>;
+                                                                };
+                                                                blocked?: boolean;
+                                                                preferedLanguage?: string;
+                                                                createdAt?: string;
+                                                                updatedAt?: string;
+                                                                createdBy?: {
+                                                                    data?: {
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    };
+                                                                };
+                                                                updatedBy?: {
+                                                                    data?: {
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    };
+                                                                };
+                                                            };
+                                                        };
+                                                    };
+                                                    updatedBy?: {
+                                                        data?: {
+                                                            id?: number;
+                                                            attributes?: unknown;
+                                                        };
+                                                    };
+                                                };
+                                            }>;
+                                        };
+                                        path?: string;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        createdBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        updatedBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+                            folderPath?: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    };
+                };
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        };
+    };
+    createdAt?: string;
+    updatedAt?: string;
+    createdBy?: {
+        data?: {
+            id?: number;
+            attributes?: unknown;
+        };
+    };
+    updatedBy?: {
+        data?: {
+            id?: number;
+            attributes?: unknown;
+        };
+    };
+};
+
+export type DirectionResponseDataObject = {
+    id?: number;
+    attributes?: Direction;
+};
+
+export type DirectionResponse = {
+    data?: DirectionResponseDataObject;
+    meta?: {
+        [key: string]: unknown;
+    };
+};
+
 export type RegionRequest = {
     data: {
         title?: string;
@@ -256,7 +683,6 @@ export type Region = {
     };
     createdAt?: string;
     updatedAt?: string;
-    publishedAt?: string;
     createdBy?: {
         data?: {
             id?: number;
@@ -278,6 +704,531 @@ export type RegionResponseDataObject = {
 
 export type RegionResponse = {
     data?: RegionResponseDataObject;
+    meta?: {
+        [key: string]: unknown;
+    };
+};
+
+export type ServiceRequest = {
+    data: {
+        title?: string;
+        small_description?: string;
+        images?: Array<(number | string)>;
+        full_description?: unknown;
+        direction?: number | string;
+        serviceType?: number | string;
+    };
+};
+
+export type ServiceListResponseDataItem = {
+    id?: number;
+    attributes?: Service;
+};
+
+export type ServiceListResponse = {
+    data?: Array<ServiceListResponseDataItem>;
+    meta?: {
+        pagination?: {
+            page?: number;
+            pageSize?: number;
+            pageCount?: number;
+            total?: number;
+        };
+    };
+};
+
+export type Service = {
+    title?: string;
+    small_description?: string;
+    images?: {
+        data?: Array<{
+            id?: number;
+            attributes?: {
+                name?: string;
+                alternativeText?: string;
+                caption?: string;
+                width?: number;
+                height?: number;
+                formats?: unknown;
+                hash?: string;
+                ext?: string;
+                mime?: string;
+                size?: number;
+                url?: string;
+                previewUrl?: string;
+                provider?: string;
+                provider_metadata?: unknown;
+                related?: {
+                    data?: Array<{
+                        id?: number;
+                        attributes?: unknown;
+                    }>;
+                };
+                folder?: {
+                    data?: {
+                        id?: number;
+                        attributes?: {
+                            name?: string;
+                            pathId?: number;
+                            parent?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            children?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: unknown;
+                                }>;
+                            };
+                            files?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: {
+                                        name?: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash?: string;
+                                        ext?: string;
+                                        mime?: string;
+                                        size?: number;
+                                        url?: string;
+                                        previewUrl?: string;
+                                        provider?: string;
+                                        provider_metadata?: unknown;
+                                        related?: {
+                                            data?: Array<{
+                                                id?: number;
+                                                attributes?: unknown;
+                                            }>;
+                                        };
+                                        folder?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        folderPath?: string;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        createdBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: {
+                                                    firstname?: string;
+                                                    lastname?: string;
+                                                    username?: string;
+                                                    email?: string;
+                                                    resetPasswordToken?: string;
+                                                    registrationToken?: string;
+                                                    isActive?: boolean;
+                                                    roles?: {
+                                                        data?: Array<{
+                                                            id?: number;
+                                                            attributes?: {
+                                                                name?: string;
+                                                                code?: string;
+                                                                description?: string;
+                                                                users?: {
+                                                                    data?: Array<{
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    }>;
+                                                                };
+                                                                permissions?: {
+                                                                    data?: Array<{
+                                                                        id?: number;
+                                                                        attributes?: {
+                                                                            action?: string;
+                                                                            actionParameters?: unknown;
+                                                                            subject?: string;
+                                                                            properties?: unknown;
+                                                                            conditions?: unknown;
+                                                                            role?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                            createdAt?: string;
+                                                                            updatedAt?: string;
+                                                                            createdBy?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                            updatedBy?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                        };
+                                                                    }>;
+                                                                };
+                                                                createdAt?: string;
+                                                                updatedAt?: string;
+                                                                createdBy?: {
+                                                                    data?: {
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    };
+                                                                };
+                                                                updatedBy?: {
+                                                                    data?: {
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    };
+                                                                };
+                                                            };
+                                                        }>;
+                                                    };
+                                                    blocked?: boolean;
+                                                    preferedLanguage?: string;
+                                                    createdAt?: string;
+                                                    updatedAt?: string;
+                                                    createdBy?: {
+                                                        data?: {
+                                                            id?: number;
+                                                            attributes?: unknown;
+                                                        };
+                                                    };
+                                                    updatedBy?: {
+                                                        data?: {
+                                                            id?: number;
+                                                            attributes?: unknown;
+                                                        };
+                                                    };
+                                                };
+                                            };
+                                        };
+                                        updatedBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                    };
+                                }>;
+                            };
+                            path?: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    };
+                };
+                folderPath?: string;
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        }>;
+    };
+    full_description?: unknown;
+    direction?: {
+        data?: {
+            id?: number;
+            attributes?: {
+                title?: string;
+                region?: {
+                    data?: {
+                        id?: number;
+                        attributes?: {
+                            title?: string;
+                            mainImage?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: {
+                                        name?: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash?: string;
+                                        ext?: string;
+                                        mime?: string;
+                                        size?: number;
+                                        url?: string;
+                                        previewUrl?: string;
+                                        provider?: string;
+                                        provider_metadata?: unknown;
+                                        related?: {
+                                            data?: Array<{
+                                                id?: number;
+                                                attributes?: unknown;
+                                            }>;
+                                        };
+                                        folder?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        folderPath?: string;
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        createdBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        updatedBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    };
+                };
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        };
+    };
+    serviceType?: {
+        data?: {
+            id?: number;
+            attributes?: {
+                title?: string;
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        };
+    };
+    createdAt?: string;
+    updatedAt?: string;
+    createdBy?: {
+        data?: {
+            id?: number;
+            attributes?: unknown;
+        };
+    };
+    updatedBy?: {
+        data?: {
+            id?: number;
+            attributes?: unknown;
+        };
+    };
+};
+
+export type ServiceResponseDataObject = {
+    id?: number;
+    attributes?: Service;
+};
+
+export type ServiceResponse = {
+    data?: ServiceResponseDataObject;
+    meta?: {
+        [key: string]: unknown;
+    };
+};
+
+export type ServiceTypeRequest = {
+    data: {
+        title?: string;
+    };
+};
+
+export type ServiceTypeListResponseDataItem = {
+    id?: number;
+    attributes?: ServiceType;
+};
+
+export type ServiceTypeListResponse = {
+    data?: Array<ServiceTypeListResponseDataItem>;
+    meta?: {
+        pagination?: {
+            page?: number;
+            pageSize?: number;
+            pageCount?: number;
+            total?: number;
+        };
+    };
+};
+
+export type ServiceType = {
+    title?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    createdBy?: {
+        data?: {
+            id?: number;
+            attributes?: {
+                firstname?: string;
+                lastname?: string;
+                username?: string;
+                email?: string;
+                resetPasswordToken?: string;
+                registrationToken?: string;
+                isActive?: boolean;
+                roles?: {
+                    data?: Array<{
+                        id?: number;
+                        attributes?: {
+                            name?: string;
+                            code?: string;
+                            description?: string;
+                            users?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: unknown;
+                                }>;
+                            };
+                            permissions?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: {
+                                        action?: string;
+                                        actionParameters?: unknown;
+                                        subject?: string;
+                                        properties?: unknown;
+                                        conditions?: unknown;
+                                        role?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        createdBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        updatedBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                    };
+                                }>;
+                            };
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    }>;
+                };
+                blocked?: boolean;
+                preferedLanguage?: string;
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        };
+    };
+    updatedBy?: {
+        data?: {
+            id?: number;
+            attributes?: unknown;
+        };
+    };
+};
+
+export type ServiceTypeResponseDataObject = {
+    id?: number;
+    attributes?: ServiceType;
+};
+
+export type ServiceTypeResponse = {
+    data?: ServiceTypeResponseDataObject;
     meta?: {
         [key: string]: unknown;
     };
@@ -323,6 +1274,150 @@ export type Users_Permissions_PermissionsTree = {
         };
     };
 };
+
+export type GetCallbackRequestsData = {
+    /**
+     * Fields to return (ex: title,author)
+     */
+    fields?: string;
+    /**
+     * Filters to apply
+     */
+    filters?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Locale to apply
+     */
+    locale?: string;
+    /**
+     * Number of entities to return (default: 25)
+     */
+    paginationLimit?: number;
+    /**
+     * Page number (default: 0)
+     */
+    paginationPage?: number;
+    /**
+     * Page size (default: 25)
+     */
+    paginationPageSize?: number;
+    /**
+     * Offset value (default: 0)
+     */
+    paginationStart?: number;
+    /**
+     * Return page/pageSize (default: true)
+     */
+    paginationWithCount?: boolean;
+    /**
+     * Relations to return
+     */
+    populate?: string;
+    /**
+     * Sort by attributes ascending (asc) or descending (desc)
+     */
+    sort?: string;
+};
+
+export type GetCallbackRequestsResponse = CallbackRequestListResponse;
+
+export type PostCallbackRequestsData = {
+    requestBody: CallbackRequestRequest;
+};
+
+export type PostCallbackRequestsResponse = CallbackRequestResponse;
+
+export type GetCallbackRequestsIdData = {
+    id: number;
+};
+
+export type GetCallbackRequestsIdResponse = CallbackRequestResponse;
+
+export type PutCallbackRequestsIdData = {
+    id: number;
+    requestBody: CallbackRequestRequest;
+};
+
+export type PutCallbackRequestsIdResponse = CallbackRequestResponse;
+
+export type DeleteCallbackRequestsIdData = {
+    id: number;
+};
+
+export type DeleteCallbackRequestsIdResponse = number;
+
+export type GetDirectionsData = {
+    /**
+     * Fields to return (ex: title,author)
+     */
+    fields?: string;
+    /**
+     * Filters to apply
+     */
+    filters?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Locale to apply
+     */
+    locale?: string;
+    /**
+     * Number of entities to return (default: 25)
+     */
+    paginationLimit?: number;
+    /**
+     * Page number (default: 0)
+     */
+    paginationPage?: number;
+    /**
+     * Page size (default: 25)
+     */
+    paginationPageSize?: number;
+    /**
+     * Offset value (default: 0)
+     */
+    paginationStart?: number;
+    /**
+     * Return page/pageSize (default: true)
+     */
+    paginationWithCount?: boolean;
+    /**
+     * Relations to return
+     */
+    populate?: string;
+    /**
+     * Sort by attributes ascending (asc) or descending (desc)
+     */
+    sort?: string;
+};
+
+export type GetDirectionsResponse = DirectionListResponse;
+
+export type PostDirectionsData = {
+    requestBody: DirectionRequest;
+};
+
+export type PostDirectionsResponse = DirectionResponse;
+
+export type GetDirectionsIdData = {
+    id: number;
+};
+
+export type GetDirectionsIdResponse = DirectionResponse;
+
+export type PutDirectionsIdData = {
+    id: number;
+    requestBody: DirectionRequest;
+};
+
+export type PutDirectionsIdResponse = DirectionResponse;
+
+export type DeleteDirectionsIdData = {
+    id: number;
+};
+
+export type DeleteDirectionsIdResponse = number;
 
 export type GetRegionsData = {
     /**
@@ -395,6 +1490,150 @@ export type DeleteRegionsIdData = {
 };
 
 export type DeleteRegionsIdResponse = number;
+
+export type GetServicesData = {
+    /**
+     * Fields to return (ex: title,author)
+     */
+    fields?: string;
+    /**
+     * Filters to apply
+     */
+    filters?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Locale to apply
+     */
+    locale?: string;
+    /**
+     * Number of entities to return (default: 25)
+     */
+    paginationLimit?: number;
+    /**
+     * Page number (default: 0)
+     */
+    paginationPage?: number;
+    /**
+     * Page size (default: 25)
+     */
+    paginationPageSize?: number;
+    /**
+     * Offset value (default: 0)
+     */
+    paginationStart?: number;
+    /**
+     * Return page/pageSize (default: true)
+     */
+    paginationWithCount?: boolean;
+    /**
+     * Relations to return
+     */
+    populate?: string;
+    /**
+     * Sort by attributes ascending (asc) or descending (desc)
+     */
+    sort?: string;
+};
+
+export type GetServicesResponse = ServiceListResponse;
+
+export type PostServicesData = {
+    requestBody: ServiceRequest;
+};
+
+export type PostServicesResponse = ServiceResponse;
+
+export type GetServicesIdData = {
+    id: number;
+};
+
+export type GetServicesIdResponse = ServiceResponse;
+
+export type PutServicesIdData = {
+    id: number;
+    requestBody: ServiceRequest;
+};
+
+export type PutServicesIdResponse = ServiceResponse;
+
+export type DeleteServicesIdData = {
+    id: number;
+};
+
+export type DeleteServicesIdResponse = number;
+
+export type GetServiceTypesData = {
+    /**
+     * Fields to return (ex: title,author)
+     */
+    fields?: string;
+    /**
+     * Filters to apply
+     */
+    filters?: {
+        [key: string]: unknown;
+    };
+    /**
+     * Locale to apply
+     */
+    locale?: string;
+    /**
+     * Number of entities to return (default: 25)
+     */
+    paginationLimit?: number;
+    /**
+     * Page number (default: 0)
+     */
+    paginationPage?: number;
+    /**
+     * Page size (default: 25)
+     */
+    paginationPageSize?: number;
+    /**
+     * Offset value (default: 0)
+     */
+    paginationStart?: number;
+    /**
+     * Return page/pageSize (default: true)
+     */
+    paginationWithCount?: boolean;
+    /**
+     * Relations to return
+     */
+    populate?: string;
+    /**
+     * Sort by attributes ascending (asc) or descending (desc)
+     */
+    sort?: string;
+};
+
+export type GetServiceTypesResponse = ServiceTypeListResponse;
+
+export type PostServiceTypesData = {
+    requestBody: ServiceTypeRequest;
+};
+
+export type PostServiceTypesResponse = ServiceTypeResponse;
+
+export type GetServiceTypesIdData = {
+    id: number;
+};
+
+export type GetServiceTypesIdResponse = ServiceTypeResponse;
+
+export type PutServiceTypesIdData = {
+    id: number;
+    requestBody: ServiceTypeRequest;
+};
+
+export type PutServiceTypesIdResponse = ServiceTypeResponse;
+
+export type DeleteServiceTypesIdData = {
+    id: number;
+};
+
+export type DeleteServiceTypesIdResponse = number;
 
 export type GetConnectByProviderData = {
     /**
@@ -598,6 +1837,304 @@ export type GetUsersMeResponse = Users_Permissions_User | Error;
 export type GetUsersCountResponse = number | Error;
 
 export type $OpenApiTs = {
+    '/callback-requests': {
+        get: {
+            req: GetCallbackRequestsData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: CallbackRequestListResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        post: {
+            req: PostCallbackRequestsData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: CallbackRequestResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
+    '/callback-requests/{id}': {
+        get: {
+            req: GetCallbackRequestsIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: CallbackRequestResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        put: {
+            req: PutCallbackRequestsIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: CallbackRequestResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        delete: {
+            req: DeleteCallbackRequestsIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: number;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
+    '/directions': {
+        get: {
+            req: GetDirectionsData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: DirectionListResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        post: {
+            req: PostDirectionsData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: DirectionResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
+    '/directions/{id}': {
+        get: {
+            req: GetDirectionsIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: DirectionResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        put: {
+            req: PutDirectionsIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: DirectionResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        delete: {
+            req: DeleteDirectionsIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: number;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
     '/regions': {
         get: {
             req: GetRegionsData;
@@ -719,6 +2256,304 @@ export type $OpenApiTs = {
         };
         delete: {
             req: DeleteRegionsIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: number;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
+    '/services': {
+        get: {
+            req: GetServicesData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceListResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        post: {
+            req: PostServicesData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
+    '/services/{id}': {
+        get: {
+            req: GetServicesIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        put: {
+            req: PutServicesIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        delete: {
+            req: DeleteServicesIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: number;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
+    '/service-types': {
+        get: {
+            req: GetServiceTypesData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceTypeListResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        post: {
+            req: PostServiceTypesData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceTypeResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+    };
+    '/service-types/{id}': {
+        get: {
+            req: GetServiceTypesIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceTypeResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        put: {
+            req: PutServiceTypesIdData;
+            res: {
+                /**
+                 * OK
+                 */
+                200: ServiceTypeResponse;
+                /**
+                 * Bad Request
+                 */
+                400: Error;
+                /**
+                 * Unauthorized
+                 */
+                401: Error;
+                /**
+                 * Forbidden
+                 */
+                403: Error;
+                /**
+                 * Not Found
+                 */
+                404: Error;
+                /**
+                 * Internal Server Error
+                 */
+                500: Error;
+            };
+        };
+        delete: {
+            req: DeleteServiceTypesIdData;
             res: {
                 /**
                  * OK

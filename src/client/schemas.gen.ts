@@ -38,6 +38,1230 @@ export const $Error = {
     }
 } as const;
 
+export const $CallbackRequestRequest = {
+    type: 'object',
+    required: ['data'],
+    properties: {
+        data: {
+            type: 'object',
+            properties: {
+                email: {
+                    type: 'string'
+                }
+            }
+        }
+    }
+} as const;
+
+export const $CallbackRequestListResponseDataItem = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/CallbackRequest'
+        }
+    }
+} as const;
+
+export const $CallbackRequestListResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            type: 'array',
+            items: {
+                '$ref': '#/components/schemas/CallbackRequestListResponseDataItem'
+            }
+        },
+        meta: {
+            type: 'object',
+            properties: {
+                pagination: {
+                    type: 'object',
+                    properties: {
+                        page: {
+                            type: 'integer'
+                        },
+                        pageSize: {
+                            type: 'integer',
+                            minimum: 25
+                        },
+                        pageCount: {
+                            type: 'integer',
+                            maximum: 1
+                        },
+                        total: {
+                            type: 'integer'
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $CallbackRequest = {
+    type: 'object',
+    properties: {
+        email: {
+            type: 'string'
+        },
+        createdAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        updatedAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        createdBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {
+                                firstname: {
+                                    type: 'string'
+                                },
+                                lastname: {
+                                    type: 'string'
+                                },
+                                username: {
+                                    type: 'string'
+                                },
+                                email: {
+                                    type: 'string',
+                                    format: 'email'
+                                },
+                                resetPasswordToken: {
+                                    type: 'string'
+                                },
+                                registrationToken: {
+                                    type: 'string'
+                                },
+                                isActive: {
+                                    type: 'boolean'
+                                },
+                                roles: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'array',
+                                            items: {
+                                                type: 'object',
+                                                properties: {
+                                                    id: {
+                                                        type: 'number'
+                                                    },
+                                                    attributes: {
+                                                        type: 'object',
+                                                        properties: {
+                                                            name: {
+                                                                type: 'string'
+                                                            },
+                                                            code: {
+                                                                type: 'string'
+                                                            },
+                                                            description: {
+                                                                type: 'string'
+                                                            },
+                                                            users: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'array',
+                                                                        items: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                id: {
+                                                                                    type: 'number'
+                                                                                },
+                                                                                attributes: {
+                                                                                    type: 'object',
+                                                                                    properties: {}
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            permissions: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'array',
+                                                                        items: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                id: {
+                                                                                    type: 'number'
+                                                                                },
+                                                                                attributes: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        action: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        actionParameters: {},
+                                                                                        subject: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        properties: {},
+                                                                                        conditions: {},
+                                                                                        role: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        createdAt: {
+                                                                                            type: 'string',
+                                                                                            format: 'date-time'
+                                                                                        },
+                                                                                        updatedAt: {
+                                                                                            type: 'string',
+                                                                                            format: 'date-time'
+                                                                                        },
+                                                                                        createdBy: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        updatedBy: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            createdAt: {
+                                                                type: 'string',
+                                                                format: 'date-time'
+                                                            },
+                                                            updatedAt: {
+                                                                type: 'string',
+                                                                format: 'date-time'
+                                                            },
+                                                            createdBy: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            updatedBy: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                blocked: {
+                                    type: 'boolean'
+                                },
+                                preferedLanguage: {
+                                    type: 'string'
+                                },
+                                createdAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                updatedAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                createdBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                updatedBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        updatedBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $CallbackRequestResponseDataObject = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/CallbackRequest'
+        }
+    }
+} as const;
+
+export const $CallbackRequestResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            '$ref': '#/components/schemas/CallbackRequestResponseDataObject'
+        },
+        meta: {
+            type: 'object'
+        }
+    }
+} as const;
+
+export const $DirectionRequest = {
+    type: 'object',
+    required: ['data'],
+    properties: {
+        data: {
+            type: 'object',
+            properties: {
+                title: {
+                    type: 'string'
+                },
+                region: {
+                    oneOf: [
+                        {
+                            type: 'integer'
+                        },
+                        {
+                            type: 'string'
+                        }
+                    ],
+                    example: 'string or id'
+                }
+            }
+        }
+    }
+} as const;
+
+export const $DirectionListResponseDataItem = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/Direction'
+        }
+    }
+} as const;
+
+export const $DirectionListResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            type: 'array',
+            items: {
+                '$ref': '#/components/schemas/DirectionListResponseDataItem'
+            }
+        },
+        meta: {
+            type: 'object',
+            properties: {
+                pagination: {
+                    type: 'object',
+                    properties: {
+                        page: {
+                            type: 'integer'
+                        },
+                        pageSize: {
+                            type: 'integer',
+                            minimum: 25
+                        },
+                        pageCount: {
+                            type: 'integer',
+                            maximum: 1
+                        },
+                        total: {
+                            type: 'integer'
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $Direction = {
+    type: 'object',
+    properties: {
+        title: {
+            type: 'string'
+        },
+        region: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {
+                                title: {
+                                    type: 'string'
+                                },
+                                mainImage: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {
+                                                        name: {
+                                                            type: 'string'
+                                                        },
+                                                        alternativeText: {
+                                                            type: 'string'
+                                                        },
+                                                        caption: {
+                                                            type: 'string'
+                                                        },
+                                                        width: {
+                                                            type: 'integer'
+                                                        },
+                                                        height: {
+                                                            type: 'integer'
+                                                        },
+                                                        formats: {},
+                                                        hash: {
+                                                            type: 'string'
+                                                        },
+                                                        ext: {
+                                                            type: 'string'
+                                                        },
+                                                        mime: {
+                                                            type: 'string'
+                                                        },
+                                                        size: {
+                                                            type: 'number',
+                                                            format: 'float'
+                                                        },
+                                                        url: {
+                                                            type: 'string'
+                                                        },
+                                                        previewUrl: {
+                                                            type: 'string'
+                                                        },
+                                                        provider: {
+                                                            type: 'string'
+                                                        },
+                                                        provider_metadata: {},
+                                                        related: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'array',
+                                                                    items: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        folder: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                name: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                pathId: {
+                                                                                    type: 'integer'
+                                                                                },
+                                                                                parent: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                id: {
+                                                                                                    type: 'number'
+                                                                                                },
+                                                                                                attributes: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {}
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                children: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'array',
+                                                                                            items: {
+                                                                                                type: 'object',
+                                                                                                properties: {
+                                                                                                    id: {
+                                                                                                        type: 'number'
+                                                                                                    },
+                                                                                                    attributes: {
+                                                                                                        type: 'object',
+                                                                                                        properties: {}
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                files: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'array',
+                                                                                            items: {
+                                                                                                type: 'object',
+                                                                                                properties: {
+                                                                                                    id: {
+                                                                                                        type: 'number'
+                                                                                                    },
+                                                                                                    attributes: {
+                                                                                                        type: 'object',
+                                                                                                        properties: {
+                                                                                                            name: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            alternativeText: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            caption: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            width: {
+                                                                                                                type: 'integer'
+                                                                                                            },
+                                                                                                            height: {
+                                                                                                                type: 'integer'
+                                                                                                            },
+                                                                                                            formats: {},
+                                                                                                            hash: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            ext: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            mime: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            size: {
+                                                                                                                type: 'number',
+                                                                                                                format: 'float'
+                                                                                                            },
+                                                                                                            url: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            previewUrl: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            provider: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            provider_metadata: {},
+                                                                                                            related: {
+                                                                                                                type: 'object',
+                                                                                                                properties: {
+                                                                                                                    data: {
+                                                                                                                        type: 'array',
+                                                                                                                        items: {
+                                                                                                                            type: 'object',
+                                                                                                                            properties: {
+                                                                                                                                id: {
+                                                                                                                                    type: 'number'
+                                                                                                                                },
+                                                                                                                                attributes: {
+                                                                                                                                    type: 'object',
+                                                                                                                                    properties: {}
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            },
+                                                                                                            folder: {
+                                                                                                                type: 'object',
+                                                                                                                properties: {
+                                                                                                                    data: {
+                                                                                                                        type: 'object',
+                                                                                                                        properties: {
+                                                                                                                            id: {
+                                                                                                                                type: 'number'
+                                                                                                                            },
+                                                                                                                            attributes: {
+                                                                                                                                type: 'object',
+                                                                                                                                properties: {}
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            },
+                                                                                                            folderPath: {
+                                                                                                                type: 'string'
+                                                                                                            },
+                                                                                                            createdAt: {
+                                                                                                                type: 'string',
+                                                                                                                format: 'date-time'
+                                                                                                            },
+                                                                                                            updatedAt: {
+                                                                                                                type: 'string',
+                                                                                                                format: 'date-time'
+                                                                                                            },
+                                                                                                            createdBy: {
+                                                                                                                type: 'object',
+                                                                                                                properties: {
+                                                                                                                    data: {
+                                                                                                                        type: 'object',
+                                                                                                                        properties: {
+                                                                                                                            id: {
+                                                                                                                                type: 'number'
+                                                                                                                            },
+                                                                                                                            attributes: {
+                                                                                                                                type: 'object',
+                                                                                                                                properties: {
+                                                                                                                                    firstname: {
+                                                                                                                                        type: 'string'
+                                                                                                                                    },
+                                                                                                                                    lastname: {
+                                                                                                                                        type: 'string'
+                                                                                                                                    },
+                                                                                                                                    username: {
+                                                                                                                                        type: 'string'
+                                                                                                                                    },
+                                                                                                                                    email: {
+                                                                                                                                        type: 'string',
+                                                                                                                                        format: 'email'
+                                                                                                                                    },
+                                                                                                                                    resetPasswordToken: {
+                                                                                                                                        type: 'string'
+                                                                                                                                    },
+                                                                                                                                    registrationToken: {
+                                                                                                                                        type: 'string'
+                                                                                                                                    },
+                                                                                                                                    isActive: {
+                                                                                                                                        type: 'boolean'
+                                                                                                                                    },
+                                                                                                                                    roles: {
+                                                                                                                                        type: 'object',
+                                                                                                                                        properties: {
+                                                                                                                                            data: {
+                                                                                                                                                type: 'array',
+                                                                                                                                                items: {
+                                                                                                                                                    type: 'object',
+                                                                                                                                                    properties: {
+                                                                                                                                                        id: {
+                                                                                                                                                            type: 'number'
+                                                                                                                                                        },
+                                                                                                                                                        attributes: {
+                                                                                                                                                            type: 'object',
+                                                                                                                                                            properties: {
+                                                                                                                                                                name: {
+                                                                                                                                                                    type: 'string'
+                                                                                                                                                                },
+                                                                                                                                                                code: {
+                                                                                                                                                                    type: 'string'
+                                                                                                                                                                },
+                                                                                                                                                                description: {
+                                                                                                                                                                    type: 'string'
+                                                                                                                                                                },
+                                                                                                                                                                users: {
+                                                                                                                                                                    type: 'object',
+                                                                                                                                                                    properties: {
+                                                                                                                                                                        data: {
+                                                                                                                                                                            type: 'array',
+                                                                                                                                                                            items: {
+                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                properties: {
+                                                                                                                                                                                    id: {
+                                                                                                                                                                                        type: 'number'
+                                                                                                                                                                                    },
+                                                                                                                                                                                    attributes: {
+                                                                                                                                                                                        type: 'object',
+                                                                                                                                                                                        properties: {}
+                                                                                                                                                                                    }
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }
+                                                                                                                                                                },
+                                                                                                                                                                permissions: {
+                                                                                                                                                                    type: 'object',
+                                                                                                                                                                    properties: {
+                                                                                                                                                                        data: {
+                                                                                                                                                                            type: 'array',
+                                                                                                                                                                            items: {
+                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                properties: {
+                                                                                                                                                                                    id: {
+                                                                                                                                                                                        type: 'number'
+                                                                                                                                                                                    },
+                                                                                                                                                                                    attributes: {
+                                                                                                                                                                                        type: 'object',
+                                                                                                                                                                                        properties: {
+                                                                                                                                                                                            action: {
+                                                                                                                                                                                                type: 'string'
+                                                                                                                                                                                            },
+                                                                                                                                                                                            actionParameters: {},
+                                                                                                                                                                                            subject: {
+                                                                                                                                                                                                type: 'string'
+                                                                                                                                                                                            },
+                                                                                                                                                                                            properties: {},
+                                                                                                                                                                                            conditions: {},
+                                                                                                                                                                                            role: {
+                                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                                properties: {
+                                                                                                                                                                                                    data: {
+                                                                                                                                                                                                        type: 'object',
+                                                                                                                                                                                                        properties: {
+                                                                                                                                                                                                            id: {
+                                                                                                                                                                                                                type: 'number'
+                                                                                                                                                                                                            },
+                                                                                                                                                                                                            attributes: {
+                                                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                                                properties: {}
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }
+                                                                                                                                                                                            },
+                                                                                                                                                                                            createdAt: {
+                                                                                                                                                                                                type: 'string',
+                                                                                                                                                                                                format: 'date-time'
+                                                                                                                                                                                            },
+                                                                                                                                                                                            updatedAt: {
+                                                                                                                                                                                                type: 'string',
+                                                                                                                                                                                                format: 'date-time'
+                                                                                                                                                                                            },
+                                                                                                                                                                                            createdBy: {
+                                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                                properties: {
+                                                                                                                                                                                                    data: {
+                                                                                                                                                                                                        type: 'object',
+                                                                                                                                                                                                        properties: {
+                                                                                                                                                                                                            id: {
+                                                                                                                                                                                                                type: 'number'
+                                                                                                                                                                                                            },
+                                                                                                                                                                                                            attributes: {
+                                                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                                                properties: {}
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }
+                                                                                                                                                                                            },
+                                                                                                                                                                                            updatedBy: {
+                                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                                properties: {
+                                                                                                                                                                                                    data: {
+                                                                                                                                                                                                        type: 'object',
+                                                                                                                                                                                                        properties: {
+                                                                                                                                                                                                            id: {
+                                                                                                                                                                                                                type: 'number'
+                                                                                                                                                                                                            },
+                                                                                                                                                                                                            attributes: {
+                                                                                                                                                                                                                type: 'object',
+                                                                                                                                                                                                                properties: {}
+                                                                                                                                                                                                            }
+                                                                                                                                                                                                        }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                }
+                                                                                                                                                                                            }
+                                                                                                                                                                                        }
+                                                                                                                                                                                    }
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }
+                                                                                                                                                                },
+                                                                                                                                                                createdAt: {
+                                                                                                                                                                    type: 'string',
+                                                                                                                                                                    format: 'date-time'
+                                                                                                                                                                },
+                                                                                                                                                                updatedAt: {
+                                                                                                                                                                    type: 'string',
+                                                                                                                                                                    format: 'date-time'
+                                                                                                                                                                },
+                                                                                                                                                                createdBy: {
+                                                                                                                                                                    type: 'object',
+                                                                                                                                                                    properties: {
+                                                                                                                                                                        data: {
+                                                                                                                                                                            type: 'object',
+                                                                                                                                                                            properties: {
+                                                                                                                                                                                id: {
+                                                                                                                                                                                    type: 'number'
+                                                                                                                                                                                },
+                                                                                                                                                                                attributes: {
+                                                                                                                                                                                    type: 'object',
+                                                                                                                                                                                    properties: {}
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }
+                                                                                                                                                                },
+                                                                                                                                                                updatedBy: {
+                                                                                                                                                                    type: 'object',
+                                                                                                                                                                    properties: {
+                                                                                                                                                                        data: {
+                                                                                                                                                                            type: 'object',
+                                                                                                                                                                            properties: {
+                                                                                                                                                                                id: {
+                                                                                                                                                                                    type: 'number'
+                                                                                                                                                                                },
+                                                                                                                                                                                attributes: {
+                                                                                                                                                                                    type: 'object',
+                                                                                                                                                                                    properties: {}
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }
+                                                                                                                                                                }
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    blocked: {
+                                                                                                                                        type: 'boolean'
+                                                                                                                                    },
+                                                                                                                                    preferedLanguage: {
+                                                                                                                                        type: 'string'
+                                                                                                                                    },
+                                                                                                                                    createdAt: {
+                                                                                                                                        type: 'string',
+                                                                                                                                        format: 'date-time'
+                                                                                                                                    },
+                                                                                                                                    updatedAt: {
+                                                                                                                                        type: 'string',
+                                                                                                                                        format: 'date-time'
+                                                                                                                                    },
+                                                                                                                                    createdBy: {
+                                                                                                                                        type: 'object',
+                                                                                                                                        properties: {
+                                                                                                                                            data: {
+                                                                                                                                                type: 'object',
+                                                                                                                                                properties: {
+                                                                                                                                                    id: {
+                                                                                                                                                        type: 'number'
+                                                                                                                                                    },
+                                                                                                                                                    attributes: {
+                                                                                                                                                        type: 'object',
+                                                                                                                                                        properties: {}
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    },
+                                                                                                                                    updatedBy: {
+                                                                                                                                        type: 'object',
+                                                                                                                                        properties: {
+                                                                                                                                            data: {
+                                                                                                                                                type: 'object',
+                                                                                                                                                properties: {
+                                                                                                                                                    id: {
+                                                                                                                                                        type: 'number'
+                                                                                                                                                    },
+                                                                                                                                                    attributes: {
+                                                                                                                                                        type: 'object',
+                                                                                                                                                        properties: {}
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            },
+                                                                                                            updatedBy: {
+                                                                                                                type: 'object',
+                                                                                                                properties: {
+                                                                                                                    data: {
+                                                                                                                        type: 'object',
+                                                                                                                        properties: {
+                                                                                                                            id: {
+                                                                                                                                type: 'number'
+                                                                                                                            },
+                                                                                                                            attributes: {
+                                                                                                                                type: 'object',
+                                                                                                                                properties: {}
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                path: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                createdAt: {
+                                                                                    type: 'string',
+                                                                                    format: 'date-time'
+                                                                                },
+                                                                                updatedAt: {
+                                                                                    type: 'string',
+                                                                                    format: 'date-time'
+                                                                                },
+                                                                                createdBy: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                id: {
+                                                                                                    type: 'number'
+                                                                                                },
+                                                                                                attributes: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {}
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                updatedBy: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                id: {
+                                                                                                    type: 'number'
+                                                                                                },
+                                                                                                attributes: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {}
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        folderPath: {
+                                                            type: 'string'
+                                                        },
+                                                        createdAt: {
+                                                            type: 'string',
+                                                            format: 'date-time'
+                                                        },
+                                                        updatedAt: {
+                                                            type: 'string',
+                                                            format: 'date-time'
+                                                        },
+                                                        createdBy: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        updatedBy: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                createdAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                updatedAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                createdBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                updatedBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        createdAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        updatedAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        createdBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {}
+                        }
+                    }
+                }
+            }
+        },
+        updatedBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $DirectionResponseDataObject = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/Direction'
+        }
+    }
+} as const;
+
+export const $DirectionResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            '$ref': '#/components/schemas/DirectionResponseDataObject'
+        },
+        meta: {
+            type: 'object'
+        }
+    }
+} as const;
+
 export const $RegionRequest = {
     type: 'object',
     required: ['data'],
@@ -748,10 +1972,6 @@ export const $Region = {
             type: 'string',
             format: 'date-time'
         },
-        publishedAt: {
-            type: 'string',
-            format: 'date-time'
-        },
         createdBy: {
             type: 'object',
             properties: {
@@ -806,6 +2026,1531 @@ export const $RegionResponse = {
     properties: {
         data: {
             '$ref': '#/components/schemas/RegionResponseDataObject'
+        },
+        meta: {
+            type: 'object'
+        }
+    }
+} as const;
+
+export const $ServiceRequest = {
+    type: 'object',
+    required: ['data'],
+    properties: {
+        data: {
+            type: 'object',
+            properties: {
+                title: {
+                    type: 'string'
+                },
+                small_description: {
+                    type: 'string'
+                },
+                images: {
+                    type: 'array',
+                    items: {
+                        oneOf: [
+                            {
+                                type: 'integer'
+                            },
+                            {
+                                type: 'string'
+                            }
+                        ],
+                        example: 'string or id'
+                    }
+                },
+                full_description: {},
+                direction: {
+                    oneOf: [
+                        {
+                            type: 'integer'
+                        },
+                        {
+                            type: 'string'
+                        }
+                    ],
+                    example: 'string or id'
+                },
+                serviceType: {
+                    oneOf: [
+                        {
+                            type: 'integer'
+                        },
+                        {
+                            type: 'string'
+                        }
+                    ],
+                    example: 'string or id'
+                }
+            }
+        }
+    }
+} as const;
+
+export const $ServiceListResponseDataItem = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/Service'
+        }
+    }
+} as const;
+
+export const $ServiceListResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            type: 'array',
+            items: {
+                '$ref': '#/components/schemas/ServiceListResponseDataItem'
+            }
+        },
+        meta: {
+            type: 'object',
+            properties: {
+                pagination: {
+                    type: 'object',
+                    properties: {
+                        page: {
+                            type: 'integer'
+                        },
+                        pageSize: {
+                            type: 'integer',
+                            minimum: 25
+                        },
+                        pageCount: {
+                            type: 'integer',
+                            maximum: 1
+                        },
+                        total: {
+                            type: 'integer'
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $Service = {
+    type: 'object',
+    properties: {
+        title: {
+            type: 'string'
+        },
+        small_description: {
+            type: 'string'
+        },
+        images: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            id: {
+                                type: 'number'
+                            },
+                            attributes: {
+                                type: 'object',
+                                properties: {
+                                    name: {
+                                        type: 'string'
+                                    },
+                                    alternativeText: {
+                                        type: 'string'
+                                    },
+                                    caption: {
+                                        type: 'string'
+                                    },
+                                    width: {
+                                        type: 'integer'
+                                    },
+                                    height: {
+                                        type: 'integer'
+                                    },
+                                    formats: {},
+                                    hash: {
+                                        type: 'string'
+                                    },
+                                    ext: {
+                                        type: 'string'
+                                    },
+                                    mime: {
+                                        type: 'string'
+                                    },
+                                    size: {
+                                        type: 'number',
+                                        format: 'float'
+                                    },
+                                    url: {
+                                        type: 'string'
+                                    },
+                                    previewUrl: {
+                                        type: 'string'
+                                    },
+                                    provider: {
+                                        type: 'string'
+                                    },
+                                    provider_metadata: {},
+                                    related: {
+                                        type: 'object',
+                                        properties: {
+                                            data: {
+                                                type: 'array',
+                                                items: {
+                                                    type: 'object',
+                                                    properties: {
+                                                        id: {
+                                                            type: 'number'
+                                                        },
+                                                        attributes: {
+                                                            type: 'object',
+                                                            properties: {}
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    folder: {
+                                        type: 'object',
+                                        properties: {
+                                            data: {
+                                                type: 'object',
+                                                properties: {
+                                                    id: {
+                                                        type: 'number'
+                                                    },
+                                                    attributes: {
+                                                        type: 'object',
+                                                        properties: {
+                                                            name: {
+                                                                type: 'string'
+                                                            },
+                                                            pathId: {
+                                                                type: 'integer'
+                                                            },
+                                                            parent: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            children: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'array',
+                                                                        items: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                id: {
+                                                                                    type: 'number'
+                                                                                },
+                                                                                attributes: {
+                                                                                    type: 'object',
+                                                                                    properties: {}
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            files: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'array',
+                                                                        items: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                id: {
+                                                                                    type: 'number'
+                                                                                },
+                                                                                attributes: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        name: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        alternativeText: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        caption: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        width: {
+                                                                                            type: 'integer'
+                                                                                        },
+                                                                                        height: {
+                                                                                            type: 'integer'
+                                                                                        },
+                                                                                        formats: {},
+                                                                                        hash: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        ext: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        mime: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        size: {
+                                                                                            type: 'number',
+                                                                                            format: 'float'
+                                                                                        },
+                                                                                        url: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        previewUrl: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        provider: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        provider_metadata: {},
+                                                                                        related: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'array',
+                                                                                                    items: {
+                                                                                                        type: 'object',
+                                                                                                        properties: {
+                                                                                                            id: {
+                                                                                                                type: 'number'
+                                                                                                            },
+                                                                                                            attributes: {
+                                                                                                                type: 'object',
+                                                                                                                properties: {}
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        folder: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        folderPath: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        createdAt: {
+                                                                                            type: 'string',
+                                                                                            format: 'date-time'
+                                                                                        },
+                                                                                        updatedAt: {
+                                                                                            type: 'string',
+                                                                                            format: 'date-time'
+                                                                                        },
+                                                                                        createdBy: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {
+                                                                                                                firstname: {
+                                                                                                                    type: 'string'
+                                                                                                                },
+                                                                                                                lastname: {
+                                                                                                                    type: 'string'
+                                                                                                                },
+                                                                                                                username: {
+                                                                                                                    type: 'string'
+                                                                                                                },
+                                                                                                                email: {
+                                                                                                                    type: 'string',
+                                                                                                                    format: 'email'
+                                                                                                                },
+                                                                                                                resetPasswordToken: {
+                                                                                                                    type: 'string'
+                                                                                                                },
+                                                                                                                registrationToken: {
+                                                                                                                    type: 'string'
+                                                                                                                },
+                                                                                                                isActive: {
+                                                                                                                    type: 'boolean'
+                                                                                                                },
+                                                                                                                roles: {
+                                                                                                                    type: 'object',
+                                                                                                                    properties: {
+                                                                                                                        data: {
+                                                                                                                            type: 'array',
+                                                                                                                            items: {
+                                                                                                                                type: 'object',
+                                                                                                                                properties: {
+                                                                                                                                    id: {
+                                                                                                                                        type: 'number'
+                                                                                                                                    },
+                                                                                                                                    attributes: {
+                                                                                                                                        type: 'object',
+                                                                                                                                        properties: {
+                                                                                                                                            name: {
+                                                                                                                                                type: 'string'
+                                                                                                                                            },
+                                                                                                                                            code: {
+                                                                                                                                                type: 'string'
+                                                                                                                                            },
+                                                                                                                                            description: {
+                                                                                                                                                type: 'string'
+                                                                                                                                            },
+                                                                                                                                            users: {
+                                                                                                                                                type: 'object',
+                                                                                                                                                properties: {
+                                                                                                                                                    data: {
+                                                                                                                                                        type: 'array',
+                                                                                                                                                        items: {
+                                                                                                                                                            type: 'object',
+                                                                                                                                                            properties: {
+                                                                                                                                                                id: {
+                                                                                                                                                                    type: 'number'
+                                                                                                                                                                },
+                                                                                                                                                                attributes: {
+                                                                                                                                                                    type: 'object',
+                                                                                                                                                                    properties: {}
+                                                                                                                                                                }
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            permissions: {
+                                                                                                                                                type: 'object',
+                                                                                                                                                properties: {
+                                                                                                                                                    data: {
+                                                                                                                                                        type: 'array',
+                                                                                                                                                        items: {
+                                                                                                                                                            type: 'object',
+                                                                                                                                                            properties: {
+                                                                                                                                                                id: {
+                                                                                                                                                                    type: 'number'
+                                                                                                                                                                },
+                                                                                                                                                                attributes: {
+                                                                                                                                                                    type: 'object',
+                                                                                                                                                                    properties: {
+                                                                                                                                                                        action: {
+                                                                                                                                                                            type: 'string'
+                                                                                                                                                                        },
+                                                                                                                                                                        actionParameters: {},
+                                                                                                                                                                        subject: {
+                                                                                                                                                                            type: 'string'
+                                                                                                                                                                        },
+                                                                                                                                                                        properties: {},
+                                                                                                                                                                        conditions: {},
+                                                                                                                                                                        role: {
+                                                                                                                                                                            type: 'object',
+                                                                                                                                                                            properties: {
+                                                                                                                                                                                data: {
+                                                                                                                                                                                    type: 'object',
+                                                                                                                                                                                    properties: {
+                                                                                                                                                                                        id: {
+                                                                                                                                                                                            type: 'number'
+                                                                                                                                                                                        },
+                                                                                                                                                                                        attributes: {
+                                                                                                                                                                                            type: 'object',
+                                                                                                                                                                                            properties: {}
+                                                                                                                                                                                        }
+                                                                                                                                                                                    }
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        },
+                                                                                                                                                                        createdAt: {
+                                                                                                                                                                            type: 'string',
+                                                                                                                                                                            format: 'date-time'
+                                                                                                                                                                        },
+                                                                                                                                                                        updatedAt: {
+                                                                                                                                                                            type: 'string',
+                                                                                                                                                                            format: 'date-time'
+                                                                                                                                                                        },
+                                                                                                                                                                        createdBy: {
+                                                                                                                                                                            type: 'object',
+                                                                                                                                                                            properties: {
+                                                                                                                                                                                data: {
+                                                                                                                                                                                    type: 'object',
+                                                                                                                                                                                    properties: {
+                                                                                                                                                                                        id: {
+                                                                                                                                                                                            type: 'number'
+                                                                                                                                                                                        },
+                                                                                                                                                                                        attributes: {
+                                                                                                                                                                                            type: 'object',
+                                                                                                                                                                                            properties: {}
+                                                                                                                                                                                        }
+                                                                                                                                                                                    }
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        },
+                                                                                                                                                                        updatedBy: {
+                                                                                                                                                                            type: 'object',
+                                                                                                                                                                            properties: {
+                                                                                                                                                                                data: {
+                                                                                                                                                                                    type: 'object',
+                                                                                                                                                                                    properties: {
+                                                                                                                                                                                        id: {
+                                                                                                                                                                                            type: 'number'
+                                                                                                                                                                                        },
+                                                                                                                                                                                        attributes: {
+                                                                                                                                                                                            type: 'object',
+                                                                                                                                                                                            properties: {}
+                                                                                                                                                                                        }
+                                                                                                                                                                                    }
+                                                                                                                                                                                }
+                                                                                                                                                                            }
+                                                                                                                                                                        }
+                                                                                                                                                                    }
+                                                                                                                                                                }
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            createdAt: {
+                                                                                                                                                type: 'string',
+                                                                                                                                                format: 'date-time'
+                                                                                                                                            },
+                                                                                                                                            updatedAt: {
+                                                                                                                                                type: 'string',
+                                                                                                                                                format: 'date-time'
+                                                                                                                                            },
+                                                                                                                                            createdBy: {
+                                                                                                                                                type: 'object',
+                                                                                                                                                properties: {
+                                                                                                                                                    data: {
+                                                                                                                                                        type: 'object',
+                                                                                                                                                        properties: {
+                                                                                                                                                            id: {
+                                                                                                                                                                type: 'number'
+                                                                                                                                                            },
+                                                                                                                                                            attributes: {
+                                                                                                                                                                type: 'object',
+                                                                                                                                                                properties: {}
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            },
+                                                                                                                                            updatedBy: {
+                                                                                                                                                type: 'object',
+                                                                                                                                                properties: {
+                                                                                                                                                    data: {
+                                                                                                                                                        type: 'object',
+                                                                                                                                                        properties: {
+                                                                                                                                                            id: {
+                                                                                                                                                                type: 'number'
+                                                                                                                                                            },
+                                                                                                                                                            attributes: {
+                                                                                                                                                                type: 'object',
+                                                                                                                                                                properties: {}
+                                                                                                                                                            }
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                        }
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                },
+                                                                                                                blocked: {
+                                                                                                                    type: 'boolean'
+                                                                                                                },
+                                                                                                                preferedLanguage: {
+                                                                                                                    type: 'string'
+                                                                                                                },
+                                                                                                                createdAt: {
+                                                                                                                    type: 'string',
+                                                                                                                    format: 'date-time'
+                                                                                                                },
+                                                                                                                updatedAt: {
+                                                                                                                    type: 'string',
+                                                                                                                    format: 'date-time'
+                                                                                                                },
+                                                                                                                createdBy: {
+                                                                                                                    type: 'object',
+                                                                                                                    properties: {
+                                                                                                                        data: {
+                                                                                                                            type: 'object',
+                                                                                                                            properties: {
+                                                                                                                                id: {
+                                                                                                                                    type: 'number'
+                                                                                                                                },
+                                                                                                                                attributes: {
+                                                                                                                                    type: 'object',
+                                                                                                                                    properties: {}
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                },
+                                                                                                                updatedBy: {
+                                                                                                                    type: 'object',
+                                                                                                                    properties: {
+                                                                                                                        data: {
+                                                                                                                            type: 'object',
+                                                                                                                            properties: {
+                                                                                                                                id: {
+                                                                                                                                    type: 'number'
+                                                                                                                                },
+                                                                                                                                attributes: {
+                                                                                                                                    type: 'object',
+                                                                                                                                    properties: {}
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        updatedBy: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            path: {
+                                                                type: 'string'
+                                                            },
+                                                            createdAt: {
+                                                                type: 'string',
+                                                                format: 'date-time'
+                                                            },
+                                                            updatedAt: {
+                                                                type: 'string',
+                                                                format: 'date-time'
+                                                            },
+                                                            createdBy: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            updatedBy: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    folderPath: {
+                                        type: 'string'
+                                    },
+                                    createdAt: {
+                                        type: 'string',
+                                        format: 'date-time'
+                                    },
+                                    updatedAt: {
+                                        type: 'string',
+                                        format: 'date-time'
+                                    },
+                                    createdBy: {
+                                        type: 'object',
+                                        properties: {
+                                            data: {
+                                                type: 'object',
+                                                properties: {
+                                                    id: {
+                                                        type: 'number'
+                                                    },
+                                                    attributes: {
+                                                        type: 'object',
+                                                        properties: {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    updatedBy: {
+                                        type: 'object',
+                                        properties: {
+                                            data: {
+                                                type: 'object',
+                                                properties: {
+                                                    id: {
+                                                        type: 'number'
+                                                    },
+                                                    attributes: {
+                                                        type: 'object',
+                                                        properties: {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        full_description: {},
+        direction: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {
+                                title: {
+                                    type: 'string'
+                                },
+                                region: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {
+                                                        title: {
+                                                            type: 'string'
+                                                        },
+                                                        mainImage: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                name: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                alternativeText: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                caption: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                width: {
+                                                                                    type: 'integer'
+                                                                                },
+                                                                                height: {
+                                                                                    type: 'integer'
+                                                                                },
+                                                                                formats: {},
+                                                                                hash: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                ext: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                mime: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                size: {
+                                                                                    type: 'number',
+                                                                                    format: 'float'
+                                                                                },
+                                                                                url: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                previewUrl: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                provider: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                provider_metadata: {},
+                                                                                related: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'array',
+                                                                                            items: {
+                                                                                                type: 'object',
+                                                                                                properties: {
+                                                                                                    id: {
+                                                                                                        type: 'number'
+                                                                                                    },
+                                                                                                    attributes: {
+                                                                                                        type: 'object',
+                                                                                                        properties: {}
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                folder: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                id: {
+                                                                                                    type: 'number'
+                                                                                                },
+                                                                                                attributes: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {}
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                folderPath: {
+                                                                                    type: 'string'
+                                                                                },
+                                                                                createdAt: {
+                                                                                    type: 'string',
+                                                                                    format: 'date-time'
+                                                                                },
+                                                                                updatedAt: {
+                                                                                    type: 'string',
+                                                                                    format: 'date-time'
+                                                                                },
+                                                                                createdBy: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                id: {
+                                                                                                    type: 'number'
+                                                                                                },
+                                                                                                attributes: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {}
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                },
+                                                                                updatedBy: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        data: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                id: {
+                                                                                                    type: 'number'
+                                                                                                },
+                                                                                                attributes: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {}
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        createdAt: {
+                                                            type: 'string',
+                                                            format: 'date-time'
+                                                        },
+                                                        updatedAt: {
+                                                            type: 'string',
+                                                            format: 'date-time'
+                                                        },
+                                                        createdBy: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        updatedBy: {
+                                                            type: 'object',
+                                                            properties: {
+                                                                data: {
+                                                                    type: 'object',
+                                                                    properties: {
+                                                                        id: {
+                                                                            type: 'number'
+                                                                        },
+                                                                        attributes: {
+                                                                            type: 'object',
+                                                                            properties: {}
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                createdAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                updatedAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                createdBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                updatedBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        serviceType: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {
+                                title: {
+                                    type: 'string'
+                                },
+                                createdAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                updatedAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                createdBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                updatedBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        createdAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        updatedAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        createdBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {}
+                        }
+                    }
+                }
+            }
+        },
+        updatedBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $ServiceResponseDataObject = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/Service'
+        }
+    }
+} as const;
+
+export const $ServiceResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            '$ref': '#/components/schemas/ServiceResponseDataObject'
+        },
+        meta: {
+            type: 'object'
+        }
+    }
+} as const;
+
+export const $ServiceTypeRequest = {
+    type: 'object',
+    required: ['data'],
+    properties: {
+        data: {
+            type: 'object',
+            properties: {
+                title: {
+                    type: 'string'
+                }
+            }
+        }
+    }
+} as const;
+
+export const $ServiceTypeListResponseDataItem = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/ServiceType'
+        }
+    }
+} as const;
+
+export const $ServiceTypeListResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            type: 'array',
+            items: {
+                '$ref': '#/components/schemas/ServiceTypeListResponseDataItem'
+            }
+        },
+        meta: {
+            type: 'object',
+            properties: {
+                pagination: {
+                    type: 'object',
+                    properties: {
+                        page: {
+                            type: 'integer'
+                        },
+                        pageSize: {
+                            type: 'integer',
+                            minimum: 25
+                        },
+                        pageCount: {
+                            type: 'integer',
+                            maximum: 1
+                        },
+                        total: {
+                            type: 'integer'
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $ServiceType = {
+    type: 'object',
+    properties: {
+        title: {
+            type: 'string'
+        },
+        createdAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        updatedAt: {
+            type: 'string',
+            format: 'date-time'
+        },
+        createdBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {
+                                firstname: {
+                                    type: 'string'
+                                },
+                                lastname: {
+                                    type: 'string'
+                                },
+                                username: {
+                                    type: 'string'
+                                },
+                                email: {
+                                    type: 'string',
+                                    format: 'email'
+                                },
+                                resetPasswordToken: {
+                                    type: 'string'
+                                },
+                                registrationToken: {
+                                    type: 'string'
+                                },
+                                isActive: {
+                                    type: 'boolean'
+                                },
+                                roles: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'array',
+                                            items: {
+                                                type: 'object',
+                                                properties: {
+                                                    id: {
+                                                        type: 'number'
+                                                    },
+                                                    attributes: {
+                                                        type: 'object',
+                                                        properties: {
+                                                            name: {
+                                                                type: 'string'
+                                                            },
+                                                            code: {
+                                                                type: 'string'
+                                                            },
+                                                            description: {
+                                                                type: 'string'
+                                                            },
+                                                            users: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'array',
+                                                                        items: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                id: {
+                                                                                    type: 'number'
+                                                                                },
+                                                                                attributes: {
+                                                                                    type: 'object',
+                                                                                    properties: {}
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            permissions: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'array',
+                                                                        items: {
+                                                                            type: 'object',
+                                                                            properties: {
+                                                                                id: {
+                                                                                    type: 'number'
+                                                                                },
+                                                                                attributes: {
+                                                                                    type: 'object',
+                                                                                    properties: {
+                                                                                        action: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        actionParameters: {},
+                                                                                        subject: {
+                                                                                            type: 'string'
+                                                                                        },
+                                                                                        properties: {},
+                                                                                        conditions: {},
+                                                                                        role: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        createdAt: {
+                                                                                            type: 'string',
+                                                                                            format: 'date-time'
+                                                                                        },
+                                                                                        updatedAt: {
+                                                                                            type: 'string',
+                                                                                            format: 'date-time'
+                                                                                        },
+                                                                                        createdBy: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        },
+                                                                                        updatedBy: {
+                                                                                            type: 'object',
+                                                                                            properties: {
+                                                                                                data: {
+                                                                                                    type: 'object',
+                                                                                                    properties: {
+                                                                                                        id: {
+                                                                                                            type: 'number'
+                                                                                                        },
+                                                                                                        attributes: {
+                                                                                                            type: 'object',
+                                                                                                            properties: {}
+                                                                                                        }
+                                                                                                    }
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            createdAt: {
+                                                                type: 'string',
+                                                                format: 'date-time'
+                                                            },
+                                                            updatedAt: {
+                                                                type: 'string',
+                                                                format: 'date-time'
+                                                            },
+                                                            createdBy: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            },
+                                                            updatedBy: {
+                                                                type: 'object',
+                                                                properties: {
+                                                                    data: {
+                                                                        type: 'object',
+                                                                        properties: {
+                                                                            id: {
+                                                                                type: 'number'
+                                                                            },
+                                                                            attributes: {
+                                                                                type: 'object',
+                                                                                properties: {}
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                blocked: {
+                                    type: 'boolean'
+                                },
+                                preferedLanguage: {
+                                    type: 'string'
+                                },
+                                createdAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                updatedAt: {
+                                    type: 'string',
+                                    format: 'date-time'
+                                },
+                                createdBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                updatedBy: {
+                                    type: 'object',
+                                    properties: {
+                                        data: {
+                                            type: 'object',
+                                            properties: {
+                                                id: {
+                                                    type: 'number'
+                                                },
+                                                attributes: {
+                                                    type: 'object',
+                                                    properties: {}
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        updatedBy: {
+            type: 'object',
+            properties: {
+                data: {
+                    type: 'object',
+                    properties: {
+                        id: {
+                            type: 'number'
+                        },
+                        attributes: {
+                            type: 'object',
+                            properties: {}
+                        }
+                    }
+                }
+            }
+        }
+    }
+} as const;
+
+export const $ServiceTypeResponseDataObject = {
+    type: 'object',
+    properties: {
+        id: {
+            type: 'number'
+        },
+        attributes: {
+            '$ref': '#/components/schemas/ServiceType'
+        }
+    }
+} as const;
+
+export const $ServiceTypeResponse = {
+    type: 'object',
+    properties: {
+        data: {
+            '$ref': '#/components/schemas/ServiceTypeResponseDataObject'
         },
         meta: {
             type: 'object'

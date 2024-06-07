@@ -157,9 +157,9 @@ export type CallbackRequestResponse = {
 
 export type DirectionRequest = {
     data: {
-        title?: string;
+        title: string;
         region?: number | string;
-        mainImage?: number | string;
+        mainImage: number | string;
     };
 };
 
@@ -181,7 +181,7 @@ export type DirectionListResponse = {
 };
 
 export type Direction = {
-    title?: string;
+    title: string;
     region?: {
         data?: {
             id?: number;
@@ -416,7 +416,7 @@ export type Direction = {
             };
         };
     };
-    mainImage?: {
+    mainImage: {
         data?: {
             id?: number;
             attributes?: {
@@ -494,8 +494,8 @@ export type DirectionResponse = {
 
 export type RegionRequest = {
     data: {
-        title?: string;
-        mainImage?: number | string;
+        title: string;
+        mainImage: number | string;
     };
 };
 
@@ -517,8 +517,8 @@ export type RegionListResponse = {
 };
 
 export type Region = {
-    title?: string;
-    mainImage?: {
+    title: string;
+    mainImage: {
         data?: {
             id?: number;
             attributes?: {
@@ -760,10 +760,10 @@ export type RegionResponse = {
 
 export type ServiceRequest = {
     data: {
-        title?: string;
-        small_description?: string;
-        images?: Array<(number | string)>;
-        full_description?: unknown;
+        title: string;
+        small_description: string;
+        images: Array<(number | string)>;
+        full_description: unknown;
         direction?: number | string;
         serviceType?: number | string;
         price: number;
@@ -788,9 +788,9 @@ export type ServiceListResponse = {
 };
 
 export type Service = {
-    title?: string;
-    small_description?: string;
-    images?: {
+    title: string;
+    small_description: string;
+    images: {
         data?: Array<{
             id?: number;
             attributes?: {
@@ -1002,7 +1002,7 @@ export type Service = {
             };
         }>;
     };
-    full_description?: unknown;
+    full_description: unknown;
     direction?: {
         data?: {
             id?: number;
@@ -1245,9 +1245,9 @@ export type ServiceResponse = {
 
 export type ServiceTypeRequest = {
     data: {
-        title?: string;
-        mdiStyle?: string;
-        mainImage?: number | string;
+        title: string;
+        mdiStyle: string;
+        mainImage: number | string;
     };
 };
 
@@ -1269,9 +1269,9 @@ export type ServiceTypeListResponse = {
 };
 
 export type ServiceType = {
-    title?: string;
-    mdiStyle?: string;
-    mainImage?: {
+    title: string;
+    mdiStyle: string;
+    mainImage: {
         data?: {
             id?: number;
             attributes?: {

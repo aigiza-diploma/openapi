@@ -20,7 +20,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-07T13:01:53.213Z"
+    "x-generation-date": "2024-06-07T13:20:50.034Z"
   },
   "servers": [
     {
@@ -478,6 +478,10 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "title",
+              "mainImage"
+            ],
             "type": "object",
             "properties": {
               "title": {
@@ -557,6 +561,10 @@
       },
       "Direction": {
         "type": "object",
+        "required": [
+          "title",
+          "mainImage"
+        ],
         "properties": {
           "title": {
             "type": "string"
@@ -1458,6 +1466,10 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "title",
+              "mainImage"
+            ],
             "type": "object",
             "properties": {
               "title": {
@@ -1526,6 +1538,10 @@
       },
       "Region": {
         "type": "object",
+        "required": [
+          "title",
+          "mainImage"
+        ],
         "properties": {
           "title": {
             "type": "string"
@@ -2226,6 +2242,10 @@
         "properties": {
           "data": {
             "required": [
+              "title",
+              "small_description",
+              "images",
+              "full_description",
               "price"
             ],
             "type": "object",
@@ -2329,6 +2349,10 @@
       "Service": {
         "type": "object",
         "required": [
+          "title",
+          "small_description",
+          "images",
+          "full_description",
           "price"
         ],
         "properties": {
@@ -3649,6 +3673,11 @@
         ],
         "properties": {
           "data": {
+            "required": [
+              "title",
+              "mdiStyle",
+              "mainImage"
+            ],
             "type": "object",
             "properties": {
               "title": {
@@ -3720,6 +3749,11 @@
       },
       "ServiceType": {
         "type": "object",
+        "required": [
+          "title",
+          "mdiStyle",
+          "mainImage"
+        ],
         "properties": {
           "title": {
             "type": "string"

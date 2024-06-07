@@ -433,6 +433,7 @@ export const $DirectionRequest = {
     required: ['data'],
     properties: {
         data: {
+            required: ['title', 'mainImage'],
             type: 'object',
             properties: {
                 title: {
@@ -515,6 +516,7 @@ export const $DirectionListResponse = {
 
 export const $Direction = {
     type: 'object',
+    required: ['title', 'mainImage'],
     properties: {
         title: {
             type: 'string'
@@ -1417,6 +1419,7 @@ export const $RegionRequest = {
     required: ['data'],
     properties: {
         data: {
+            required: ['title', 'mainImage'],
             type: 'object',
             properties: {
                 title: {
@@ -1488,6 +1491,7 @@ export const $RegionListResponse = {
 
 export const $Region = {
     type: 'object',
+    required: ['title', 'mainImage'],
     properties: {
         title: {
             type: 'string'
@@ -2188,7 +2192,7 @@ export const $ServiceRequest = {
     required: ['data'],
     properties: {
         data: {
-            required: ['price'],
+            required: ['title', 'small_description', 'images', 'full_description', 'price'],
             type: 'object',
             properties: {
                 title: {
@@ -2292,7 +2296,7 @@ export const $ServiceListResponse = {
 
 export const $Service = {
     type: 'object',
-    required: ['price'],
+    required: ['title', 'small_description', 'images', 'full_description', 'price'],
     properties: {
         title: {
             type: 'string'
@@ -3612,6 +3616,7 @@ export const $ServiceTypeRequest = {
     required: ['data'],
     properties: {
         data: {
+            required: ['title', 'mdiStyle', 'mainImage'],
             type: 'object',
             properties: {
                 title: {
@@ -3686,6 +3691,7 @@ export const $ServiceTypeListResponse = {
 
 export const $ServiceType = {
     type: 'object',
+    required: ['title', 'mdiStyle', 'mainImage'],
     properties: {
         title: {
             type: 'string'

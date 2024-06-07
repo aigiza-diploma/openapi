@@ -766,6 +766,7 @@ export type ServiceRequest = {
         full_description?: unknown;
         direction?: number | string;
         serviceType?: number | string;
+        price: number;
     };
 };
 
@@ -1148,6 +1149,54 @@ export type Service = {
             attributes?: {
                 title?: string;
                 mdiStyle?: string;
+                mainImage?: {
+                    data?: {
+                        id?: number;
+                        attributes?: {
+                            name?: string;
+                            alternativeText?: string;
+                            caption?: string;
+                            width?: number;
+                            height?: number;
+                            formats?: unknown;
+                            hash?: string;
+                            ext?: string;
+                            mime?: string;
+                            size?: number;
+                            url?: string;
+                            previewUrl?: string;
+                            provider?: string;
+                            provider_metadata?: unknown;
+                            related?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: unknown;
+                                }>;
+                            };
+                            folder?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            folderPath?: string;
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    };
+                };
                 createdAt?: string;
                 updatedAt?: string;
                 createdBy?: {
@@ -1165,6 +1214,7 @@ export type Service = {
             };
         };
     };
+    price: number;
     createdAt?: string;
     updatedAt?: string;
     createdBy?: {
@@ -1197,6 +1247,7 @@ export type ServiceTypeRequest = {
     data: {
         title?: string;
         mdiStyle?: string;
+        mainImage?: number | string;
     };
 };
 
@@ -1220,53 +1271,171 @@ export type ServiceTypeListResponse = {
 export type ServiceType = {
     title?: string;
     mdiStyle?: string;
-    createdAt?: string;
-    updatedAt?: string;
-    createdBy?: {
+    mainImage?: {
         data?: {
             id?: number;
             attributes?: {
-                firstname?: string;
-                lastname?: string;
-                username?: string;
-                email?: string;
-                resetPasswordToken?: string;
-                registrationToken?: string;
-                isActive?: boolean;
-                roles?: {
+                name?: string;
+                alternativeText?: string;
+                caption?: string;
+                width?: number;
+                height?: number;
+                formats?: unknown;
+                hash?: string;
+                ext?: string;
+                mime?: string;
+                size?: number;
+                url?: string;
+                previewUrl?: string;
+                provider?: string;
+                provider_metadata?: unknown;
+                related?: {
                     data?: Array<{
+                        id?: number;
+                        attributes?: unknown;
+                    }>;
+                };
+                folder?: {
+                    data?: {
                         id?: number;
                         attributes?: {
                             name?: string;
-                            code?: string;
-                            description?: string;
-                            users?: {
+                            pathId?: number;
+                            parent?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            children?: {
                                 data?: Array<{
                                     id?: number;
                                     attributes?: unknown;
                                 }>;
                             };
-                            permissions?: {
+                            files?: {
                                 data?: Array<{
                                     id?: number;
                                     attributes?: {
-                                        action?: string;
-                                        actionParameters?: unknown;
-                                        subject?: string;
-                                        properties?: unknown;
-                                        conditions?: unknown;
-                                        role?: {
+                                        name?: string;
+                                        alternativeText?: string;
+                                        caption?: string;
+                                        width?: number;
+                                        height?: number;
+                                        formats?: unknown;
+                                        hash?: string;
+                                        ext?: string;
+                                        mime?: string;
+                                        size?: number;
+                                        url?: string;
+                                        previewUrl?: string;
+                                        provider?: string;
+                                        provider_metadata?: unknown;
+                                        related?: {
+                                            data?: Array<{
+                                                id?: number;
+                                                attributes?: unknown;
+                                            }>;
+                                        };
+                                        folder?: {
                                             data?: {
                                                 id?: number;
                                                 attributes?: unknown;
                                             };
                                         };
+                                        folderPath?: string;
                                         createdAt?: string;
                                         updatedAt?: string;
                                         createdBy?: {
                                             data?: {
                                                 id?: number;
-                                                attributes?: unknown;
+                                                attributes?: {
+                                                    firstname?: string;
+                                                    lastname?: string;
+                                                    username?: string;
+                                                    email?: string;
+                                                    resetPasswordToken?: string;
+                                                    registrationToken?: string;
+                                                    isActive?: boolean;
+                                                    roles?: {
+                                                        data?: Array<{
+                                                            id?: number;
+                                                            attributes?: {
+                                                                name?: string;
+                                                                code?: string;
+                                                                description?: string;
+                                                                users?: {
+                                                                    data?: Array<{
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    }>;
+                                                                };
+                                                                permissions?: {
+                                                                    data?: Array<{
+                                                                        id?: number;
+                                                                        attributes?: {
+                                                                            action?: string;
+                                                                            actionParameters?: unknown;
+                                                                            subject?: string;
+                                                                            properties?: unknown;
+                                                                            conditions?: unknown;
+                                                                            role?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                            createdAt?: string;
+                                                                            updatedAt?: string;
+                                                                            createdBy?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                            updatedBy?: {
+                                                                                data?: {
+                                                                                    id?: number;
+                                                                                    attributes?: unknown;
+                                                                                };
+                                                                            };
+                                                                        };
+                                                                    }>;
+                                                                };
+                                                                createdAt?: string;
+                                                                updatedAt?: string;
+                                                                createdBy?: {
+                                                                    data?: {
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    };
+                                                                };
+                                                                updatedBy?: {
+                                                                    data?: {
+                                                                        id?: number;
+                                                                        attributes?: unknown;
+                                                                    };
+                                                                };
+                                                            };
+                                                        }>;
+                                                    };
+                                                    blocked?: boolean;
+                                                    preferedLanguage?: string;
+                                                    createdAt?: string;
+                                                    updatedAt?: string;
+                                                    createdBy?: {
+                                                        data?: {
+                                                            id?: number;
+                                                            attributes?: unknown;
+                                                        };
+                                                    };
+                                                    updatedBy?: {
+                                                        data?: {
+                                                            id?: number;
+                                                            attributes?: unknown;
+                                                        };
+                                                    };
+                                                };
                                             };
                                         };
                                         updatedBy?: {
@@ -1278,6 +1447,7 @@ export type ServiceType = {
                                     };
                                 }>;
                             };
+                            path?: string;
                             createdAt?: string;
                             updatedAt?: string;
                             createdBy?: {
@@ -1293,10 +1463,9 @@ export type ServiceType = {
                                 };
                             };
                         };
-                    }>;
+                    };
                 };
-                blocked?: boolean;
-                preferedLanguage?: string;
+                folderPath?: string;
                 createdAt?: string;
                 updatedAt?: string;
                 createdBy?: {
@@ -1312,6 +1481,14 @@ export type ServiceType = {
                     };
                 };
             };
+        };
+    };
+    createdAt?: string;
+    updatedAt?: string;
+    createdBy?: {
+        data?: {
+            id?: number;
+            attributes?: unknown;
         };
     };
     updatedBy?: {

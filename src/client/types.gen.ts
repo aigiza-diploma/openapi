@@ -22,6 +22,7 @@ export type BookingRequest = {
         date_from: string;
         date_to: string;
         service?: number | string;
+        users_permissions_user?: number | string;
     };
 };
 
@@ -429,6 +430,92 @@ export type Booking = {
                     };
                 };
                 price?: number;
+                createdAt?: string;
+                updatedAt?: string;
+                createdBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+                updatedBy?: {
+                    data?: {
+                        id?: number;
+                        attributes?: unknown;
+                    };
+                };
+            };
+        };
+    };
+    users_permissions_user?: {
+        data?: {
+            id?: number;
+            attributes?: {
+                username?: string;
+                email?: string;
+                provider?: string;
+                resetPasswordToken?: string;
+                confirmationToken?: string;
+                confirmed?: boolean;
+                blocked?: boolean;
+                role?: {
+                    data?: {
+                        id?: number;
+                        attributes?: {
+                            name?: string;
+                            description?: string;
+                            type?: string;
+                            permissions?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: {
+                                        action?: string;
+                                        role?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        createdAt?: string;
+                                        updatedAt?: string;
+                                        createdBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                        updatedBy?: {
+                                            data?: {
+                                                id?: number;
+                                                attributes?: unknown;
+                                            };
+                                        };
+                                    };
+                                }>;
+                            };
+                            users?: {
+                                data?: Array<{
+                                    id?: number;
+                                    attributes?: unknown;
+                                }>;
+                            };
+                            createdAt?: string;
+                            updatedAt?: string;
+                            createdBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                            updatedBy?: {
+                                data?: {
+                                    id?: number;
+                                    attributes?: unknown;
+                                };
+                            };
+                        };
+                    };
+                };
                 createdAt?: string;
                 updatedAt?: string;
                 createdBy?: {

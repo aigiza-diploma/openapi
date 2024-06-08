@@ -3,6 +3,7 @@ import type { OpenAPIConfig } from './core/OpenAPI';
 import { Interceptors } from './core/OpenAPI';
 import { FetchHttpRequest } from './core/FetchHttpRequest';
 
+import { BookingService } from './services.gen';
 import { CallbackRequestService } from './services.gen';
 import { DirectionService } from './services.gen';
 import { RegionService } from './services.gen';
@@ -15,6 +16,7 @@ type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
 
 export class Client {
 
+	public readonly booking: BookingService;
 	public readonly callbackRequest: CallbackRequestService;
 	public readonly direction: DirectionService;
 	public readonly region: RegionService;
@@ -42,6 +44,7 @@ export class Client {
       },
 		});
 
+		this.booking = new BookingService(this.request);
 		this.callbackRequest = new CallbackRequestService(this.request);
 		this.direction = new DirectionService(this.request);
 		this.region = new RegionService(this.request);

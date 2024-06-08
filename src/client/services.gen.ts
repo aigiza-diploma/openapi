@@ -2,7 +2,147 @@
 
 import type { CancelablePromise } from './core/CancelablePromise';
 import type { BaseHttpRequest } from './core/BaseHttpRequest';
-import type { GetCallbackRequestsData, GetCallbackRequestsResponse, PostCallbackRequestsData, PostCallbackRequestsResponse, GetCallbackRequestsIdData, GetCallbackRequestsIdResponse, PutCallbackRequestsIdData, PutCallbackRequestsIdResponse, DeleteCallbackRequestsIdData, DeleteCallbackRequestsIdResponse, GetDirectionsData, GetDirectionsResponse, PostDirectionsData, PostDirectionsResponse, GetDirectionsIdData, GetDirectionsIdResponse, PutDirectionsIdData, PutDirectionsIdResponse, DeleteDirectionsIdData, DeleteDirectionsIdResponse, GetRegionsData, GetRegionsResponse, PostRegionsData, PostRegionsResponse, GetRegionsIdData, GetRegionsIdResponse, PutRegionsIdData, PutRegionsIdResponse, DeleteRegionsIdData, DeleteRegionsIdResponse, GetServicesData, GetServicesResponse, PostServicesData, PostServicesResponse, GetServicesIdData, GetServicesIdResponse, PutServicesIdData, PutServicesIdResponse, DeleteServicesIdData, DeleteServicesIdResponse, GetServiceTypesData, GetServiceTypesResponse, PostServiceTypesData, PostServiceTypesResponse, GetServiceTypesIdData, GetServiceTypesIdResponse, PutServiceTypesIdData, PutServiceTypesIdResponse, DeleteServiceTypesIdData, DeleteServiceTypesIdResponse, GetConnectByProviderData, GetConnectByProviderResponse, PostAuthLocalData, PostAuthLocalResponse, PostAuthLocalRegisterData, PostAuthLocalRegisterResponse, GetAuthByProviderCallbackData, GetAuthByProviderCallbackResponse, PostAuthForgotPasswordData, PostAuthForgotPasswordResponse, PostAuthResetPasswordData, PostAuthResetPasswordResponse, PostAuthChangePasswordData, PostAuthChangePasswordResponse, GetAuthEmailConfirmationData, GetAuthEmailConfirmationResponse, PostAuthSendEmailConfirmationData, PostAuthSendEmailConfirmationResponse, GetUsersPermissionsPermissionsResponse, GetUsersPermissionsRolesResponse, PostUsersPermissionsRolesData, PostUsersPermissionsRolesResponse, GetUsersPermissionsRolesByIdData, GetUsersPermissionsRolesByIdResponse, PutUsersPermissionsRolesByRoleData, PutUsersPermissionsRolesByRoleResponse, DeleteUsersPermissionsRolesByRoleData, DeleteUsersPermissionsRolesByRoleResponse, GetUsersResponse, PostUsersData, PostUsersResponse, GetUsersByIdData, GetUsersByIdResponse, PutUsersByIdData, PutUsersByIdResponse, DeleteUsersByIdData, DeleteUsersByIdResponse, GetUsersMeResponse, GetUsersCountResponse } from './types.gen';
+import type { GetBookingsData, GetBookingsResponse, PostBookingsData, PostBookingsResponse, GetBookingsIdData, GetBookingsIdResponse, PutBookingsIdData, PutBookingsIdResponse, DeleteBookingsIdData, DeleteBookingsIdResponse, GetCallbackRequestsData, GetCallbackRequestsResponse, PostCallbackRequestsData, PostCallbackRequestsResponse, GetCallbackRequestsIdData, GetCallbackRequestsIdResponse, PutCallbackRequestsIdData, PutCallbackRequestsIdResponse, DeleteCallbackRequestsIdData, DeleteCallbackRequestsIdResponse, GetDirectionsData, GetDirectionsResponse, PostDirectionsData, PostDirectionsResponse, GetDirectionsIdData, GetDirectionsIdResponse, PutDirectionsIdData, PutDirectionsIdResponse, DeleteDirectionsIdData, DeleteDirectionsIdResponse, GetRegionsData, GetRegionsResponse, PostRegionsData, PostRegionsResponse, GetRegionsIdData, GetRegionsIdResponse, PutRegionsIdData, PutRegionsIdResponse, DeleteRegionsIdData, DeleteRegionsIdResponse, GetServicesData, GetServicesResponse, PostServicesData, PostServicesResponse, GetServicesIdData, GetServicesIdResponse, PutServicesIdData, PutServicesIdResponse, DeleteServicesIdData, DeleteServicesIdResponse, GetServiceTypesData, GetServiceTypesResponse, PostServiceTypesData, PostServiceTypesResponse, GetServiceTypesIdData, GetServiceTypesIdResponse, PutServiceTypesIdData, PutServiceTypesIdResponse, DeleteServiceTypesIdData, DeleteServiceTypesIdResponse, GetConnectByProviderData, GetConnectByProviderResponse, PostAuthLocalData, PostAuthLocalResponse, PostAuthLocalRegisterData, PostAuthLocalRegisterResponse, GetAuthByProviderCallbackData, GetAuthByProviderCallbackResponse, PostAuthForgotPasswordData, PostAuthForgotPasswordResponse, PostAuthResetPasswordData, PostAuthResetPasswordResponse, PostAuthChangePasswordData, PostAuthChangePasswordResponse, GetAuthEmailConfirmationData, GetAuthEmailConfirmationResponse, PostAuthSendEmailConfirmationData, PostAuthSendEmailConfirmationResponse, GetUsersPermissionsPermissionsResponse, GetUsersPermissionsRolesResponse, PostUsersPermissionsRolesData, PostUsersPermissionsRolesResponse, GetUsersPermissionsRolesByIdData, GetUsersPermissionsRolesByIdResponse, PutUsersPermissionsRolesByRoleData, PutUsersPermissionsRolesByRoleResponse, DeleteUsersPermissionsRolesByRoleData, DeleteUsersPermissionsRolesByRoleResponse, GetUsersResponse, PostUsersData, PostUsersResponse, GetUsersByIdData, GetUsersByIdResponse, PutUsersByIdData, PutUsersByIdResponse, DeleteUsersByIdData, DeleteUsersByIdResponse, GetUsersMeResponse, GetUsersCountResponse } from './types.gen';
+
+export class BookingService {
+    constructor(public readonly httpRequest: BaseHttpRequest) { }
+    
+    /**
+     * @param data The data for the request.
+     * @param data.sort Sort by attributes ascending (asc) or descending (desc)
+     * @param data.paginationWithCount Return page/pageSize (default: true)
+     * @param data.paginationPage Page number (default: 0)
+     * @param data.paginationPageSize Page size (default: 25)
+     * @param data.paginationStart Offset value (default: 0)
+     * @param data.paginationLimit Number of entities to return (default: 25)
+     * @param data.fields Fields to return (ex: title,author)
+     * @param data.populate Relations to return
+     * @param data.filters Filters to apply
+     * @param data.locale Locale to apply
+     * @returns BookingListResponse OK
+     * @throws ApiError
+     */
+    public getBookings(data: GetBookingsData = {}): CancelablePromise<GetBookingsResponse> {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/bookings',
+            query: {
+                sort: data.sort,
+                'pagination[withCount]': data.paginationWithCount,
+                'pagination[page]': data.paginationPage,
+                'pagination[pageSize]': data.paginationPageSize,
+                'pagination[start]': data.paginationStart,
+                'pagination[limit]': data.paginationLimit,
+                fields: data.fields,
+                populate: data.populate,
+                filters: data.filters,
+                locale: data.locale
+            },
+            errors: {
+                400: 'Bad Request',
+                401: 'Unauthorized',
+                403: 'Forbidden',
+                404: 'Not Found',
+                500: 'Internal Server Error'
+            }
+        });
+    }
+    
+    /**
+     * @param data The data for the request.
+     * @param data.requestBody
+     * @returns BookingResponse OK
+     * @throws ApiError
+     */
+    public postBookings(data: PostBookingsData): CancelablePromise<PostBookingsResponse> {
+        return this.httpRequest.request({
+            method: 'POST',
+            url: '/bookings',
+            body: data.requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: 'Bad Request',
+                401: 'Unauthorized',
+                403: 'Forbidden',
+                404: 'Not Found',
+                500: 'Internal Server Error'
+            }
+        });
+    }
+    
+    /**
+     * @param data The data for the request.
+     * @param data.id
+     * @returns BookingResponse OK
+     * @throws ApiError
+     */
+    public getBookingsId(data: GetBookingsIdData): CancelablePromise<GetBookingsIdResponse> {
+        return this.httpRequest.request({
+            method: 'GET',
+            url: '/bookings/{id}',
+            path: {
+                id: data.id
+            },
+            errors: {
+                400: 'Bad Request',
+                401: 'Unauthorized',
+                403: 'Forbidden',
+                404: 'Not Found',
+                500: 'Internal Server Error'
+            }
+        });
+    }
+    
+    /**
+     * @param data The data for the request.
+     * @param data.id
+     * @param data.requestBody
+     * @returns BookingResponse OK
+     * @throws ApiError
+     */
+    public putBookingsId(data: PutBookingsIdData): CancelablePromise<PutBookingsIdResponse> {
+        return this.httpRequest.request({
+            method: 'PUT',
+            url: '/bookings/{id}',
+            path: {
+                id: data.id
+            },
+            body: data.requestBody,
+            mediaType: 'application/json',
+            errors: {
+                400: 'Bad Request',
+                401: 'Unauthorized',
+                403: 'Forbidden',
+                404: 'Not Found',
+                500: 'Internal Server Error'
+            }
+        });
+    }
+    
+    /**
+     * @param data The data for the request.
+     * @param data.id
+     * @returns number OK
+     * @throws ApiError
+     */
+    public deleteBookingsId(data: DeleteBookingsIdData): CancelablePromise<DeleteBookingsIdResponse> {
+        return this.httpRequest.request({
+            method: 'DELETE',
+            url: '/bookings/{id}',
+            path: {
+                id: data.id
+            },
+            errors: {
+                400: 'Bad Request',
+                401: 'Unauthorized',
+                403: 'Forbidden',
+                404: 'Not Found',
+                500: 'Internal Server Error'
+            }
+        });
+    }
+    
+}
 
 export class CallbackRequestService {
     constructor(public readonly httpRequest: BaseHttpRequest) { }

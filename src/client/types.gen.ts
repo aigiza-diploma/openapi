@@ -20,7 +20,6 @@ export type BookingRequest = {
     data: {
         tel: string;
         date_from: string;
-        date_to: string;
         service?: number | string;
         users_permissions_user?: number | string;
     };
@@ -46,7 +45,6 @@ export type BookingListResponse = {
 export type Booking = {
     tel: string;
     date_from: string;
-    date_to: string;
     service?: {
         data?: {
             id?: number;

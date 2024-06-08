@@ -20,7 +20,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-08T12:53:46.493Z"
+    "x-generation-date": "2024-06-08T13:15:47.277Z"
   },
   "servers": [
     {
@@ -94,8 +94,7 @@
           "data": {
             "required": [
               "tel",
-              "date_from",
-              "date_to"
+              "date_from"
             ],
             "type": "object",
             "properties": {
@@ -103,10 +102,6 @@
                 "type": "string"
               },
               "date_from": {
-                "type": "string",
-                "format": "date"
-              },
-              "date_to": {
                 "type": "string",
                 "format": "date"
               },
@@ -186,18 +181,13 @@
         "type": "object",
         "required": [
           "tel",
-          "date_from",
-          "date_to"
+          "date_from"
         ],
         "properties": {
           "tel": {
             "type": "string"
           },
           "date_from": {
-            "type": "string",
-            "format": "date"
-          },
-          "date_to": {
             "type": "string",
             "format": "date"
           },

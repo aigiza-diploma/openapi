@@ -43,17 +43,13 @@ export const $BookingRequest = {
     required: ['data'],
     properties: {
         data: {
-            required: ['tel', 'date_from', 'date_to'],
+            required: ['tel', 'date_from'],
             type: 'object',
             properties: {
                 tel: {
                     type: 'string'
                 },
                 date_from: {
-                    type: 'string',
-                    format: 'date'
-                },
-                date_to: {
                     type: 'string',
                     format: 'date'
                 },
@@ -134,16 +130,12 @@ export const $BookingListResponse = {
 
 export const $Booking = {
     type: 'object',
-    required: ['tel', 'date_from', 'date_to'],
+    required: ['tel', 'date_from'],
     properties: {
         tel: {
             type: 'string'
         },
         date_from: {
-            type: 'string',
-            format: 'date'
-        },
-        date_to: {
             type: 'string',
             format: 'date'
         },
